@@ -17,7 +17,7 @@ export const GlobalStyles = createGlobalStyle`
         overflow-x: hidden;
         
         &:before {
-            
+            z-index: -1;
             /* text-orientation: mixed; */
             content: "SMKN 26 JAKARTA";
             text-align: center;
