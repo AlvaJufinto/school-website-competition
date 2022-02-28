@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Parallax } from "react-scroll-parallax";
+import useWindowDimensions from "./../hooks/useWindowDimensions";
 
 import Navbar from "../components/Navbar";
 import { GlobalColors } from "../globals";
@@ -8,7 +9,7 @@ import { StyledSection } from "../components/styledComponents";
 import HeroSijaImg from "./../assets/img/hero-sija.png";
 
 export const HeroContainer = styled.div`
-    padding: 250px 0 0 0;
+    padding: 150px 0 0 0;
     position: relative;
 
     h2 {
@@ -39,32 +40,31 @@ export const HeroContainer = styled.div`
         padding: 30px;
         font-size: 1.5rem;
         border-bottom: 5px solid ${GlobalColors.blue};
-        position: absolute;
-        bottom: -50px;
-        right: 0;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         .HeroContainer__TextHolder {
-            position: static;
+            position: relative;
             width: 100%;
-            /* height: auto; */
+
         }
     }
 `
 
 const Home = () => {
+    const { width, height } = useWindowDimensions();
+
     return ( 
         <StyledSection>
             <Navbar />
             <HeroContainer>
-                <Parallax translateX={[50, 0]}>   
+                <Parallax translateX={[10, 0]}>   
                     <h2>Selamat Datang di <span className="underline">SIJA’26</span></h2>
                 </Parallax>
                 <div className="HeroContainer__ImgHolder">
                     <img src={HeroSijaImg} alt="Bruh" />
                 </div>
-                <Parallax translateX={[0, 10]}>
+                <Parallax translateY={width > 1024 ? [-50, -200] : [0, 0]} translateX={width > 1024 ? [62, 62] : [0, 0]} >
                     <div className="HeroContainer__TextHolder">
                         <div className="TextHolder">
                             <p>

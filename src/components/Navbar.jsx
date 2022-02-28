@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from 'react';
 import styled from "styled-components";
 import { StyledLink } from "./styledComponents";
 import { GlobalColors, GlobalMeasurements } from "./../globals";
