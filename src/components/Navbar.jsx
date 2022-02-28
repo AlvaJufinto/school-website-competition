@@ -5,7 +5,7 @@ import { GlobalColors, GlobalMeasurements } from "./../globals";
 
 export const Nav = styled.div`
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     left: 0;
     right: 0;
     padding: 20px 0px;
@@ -63,7 +63,6 @@ export const Nav = styled.div`
 `
 
 export const NavContainer = styled.div`
-    /* clip-path: ; */
     transition: 1s;
     clip-path: ${props => props.isOpen ? "ellipse(200vh 3000vw at 100% -15%)" : 'ellipse(130px 140px at 100% -20%)'};
     height: 100vh;
@@ -72,6 +71,7 @@ export const NavContainer = styled.div`
     position: fixed;
     top: 0;
     right: 0;
+    z-index: 1;
     background: ${GlobalColors.grey};
     
     section {
@@ -118,7 +118,7 @@ export const NavContainer = styled.div`
         }
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1200px) {
         .NavContainer__Left {
             display: none;
         }

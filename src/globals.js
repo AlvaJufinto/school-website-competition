@@ -33,13 +33,11 @@ export const GlobalStyles = createGlobalStyle`
         }
     }
 
-    @media (max-width: 768px) {
-        body {
-            &:before {
-                writing-mode: vertical-rl;
-                content: "SMKN 26 JAKARTA";
-            }
-        }
+    .underline {
+        text-decoration-line: underline;
+        text-decoration-style: "solid";
+        text-decoration-color: #0587FF;
+        text-decoration-thickness: 5px;
     }
 `
 

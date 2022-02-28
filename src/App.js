@@ -15,14 +15,14 @@ import { GlobalStyles } from "./globals";
 function App() {
   return (
     <Router>
-      <ParallaxProvider>
         <GlobalStyles />
         <div className="App">
+        <ParallaxProvider>
           <Routes>
             <Route path="/" element={<Home />} />
           </Routes>
+        </ParallaxProvider>
         </div>
-      </ParallaxProvider>
     </Router>
   );
 }
