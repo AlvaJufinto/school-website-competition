@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext, useState, useEffect } from 'react';
+import { ParallaxProvider } from "react-scroll-parallax";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  useLocation
+} from "react-router-dom";
+
+import Home from "./pages/Home";
+
+import { GlobalStyles } from "./globals";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ParallaxProvider>
+        <GlobalStyles />
+        <div className="App">
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </div>
+      </ParallaxProvider>
+    </Router>
   );
 }
 
