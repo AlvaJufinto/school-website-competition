@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Parallax } from "react-scroll-parallax";
 import useWindowDimensions from "./../hooks/useWindowDimensions";
+// import { KeyboardCommandKeyIcon } from '@mui/icons-material';
 
 import Navbar from "../components/Navbar";
 import { GlobalColors, GlobalFonts } from "../globals";
@@ -68,6 +69,39 @@ export const AboutContainer = styled.div`
         border-bottom: 5px solid ${GlobalColors.blue};
         font-family: ${GlobalFonts.secondary};
     }
+
+    .statistic {
+        margin: 50px auto;
+        text-align: center;
+    }
+
+    .AboutContainer__CounterHolder {
+        width: 60%;
+        margin: auto;
+        display: flex;
+        color: white;
+        justify-content: space-between;
+
+        .Counter {
+            text-align: center; 
+
+            h2 {
+                font-size: 3.5rem;
+            }
+
+            p {
+                font-size: 2rem;
+                font-family: ${GlobalFonts.secondary};
+            }
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .AboutContainer__CounterHolder {
+            flex-direction: column;
+            gap: 50px;
+        }
+    }
 ` 
 
 const Home = () => {
@@ -95,7 +129,7 @@ const Home = () => {
                 </Parallax>
             </HeroContainer>
             <AboutContainer>
-                <Parallax translateX={[10, 0]}>   
+                <Parallax translateX={[0, 10]}>   
                     <h2>Siapakah <span className="underline">SIJA'26</span>?</h2>
                 </Parallax>
                 <div className="AboutContainer__TextHolder">
@@ -105,6 +139,25 @@ const Home = () => {
                         </p>
                     </div>
                     <div className="TextHolder_Line"></div>
+                </div>
+
+                <Parallax translateX={width > 1024 ? [5, -20] : [0, 0]}>
+                    <h2 className="statistic" >Statistik  <span className="underline">SIJA’26</span></h2>
+                </Parallax>
+                <div className="AboutContainer__CounterHolder">
+
+                    <div className="Counter">
+                        <h2>3</h2>
+                        <p>Pendidik</p>
+                    </div>
+                    <div className="Counter">
+                        <h2>200</h2>
+                        <p>Peserta Didik</p>
+                    </div>
+                    <div className="Counter">
+                        <h2>9</h2>
+                        <p>Pelajaran</p>
+                    </div>
                 </div>
             </AboutContainer>
         </StyledSection>
