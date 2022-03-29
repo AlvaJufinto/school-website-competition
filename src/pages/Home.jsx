@@ -3,7 +3,7 @@ import { Parallax } from "react-scroll-parallax";
 import useWindowDimensions from "./../hooks/useWindowDimensions";
 
 import Navbar from "../components/Navbar";
-import { GlobalColors } from "../globals";
+import { GlobalColors, GlobalFonts } from "../globals";
 import { StyledSection } from "../components/styledComponents";
 
 import HeroSijaImg from "./../assets/img/hero-sija.png";
@@ -40,16 +40,35 @@ export const HeroContainer = styled.div`
         padding: 30px;
         font-size: 1.5rem;
         border-bottom: 5px solid ${GlobalColors.blue};
+        font-family: ${GlobalFonts.secondary};
     }
 
     @media (max-width: 1024px) {
         .HeroContainer__TextHolder {
             position: relative;
             width: 100%;
-
         }
     }
 `
+
+export const AboutContainer = styled.div`
+    margin: 40px 0;
+    position: relative;
+
+    h2 {
+        font-size: 3rem;
+    }
+    
+    .AboutContainer__TextHolder {
+        background: ${GlobalColors.grey};
+        /* width: 50px; */
+        max-width: 100%;
+        padding: 30px;
+        font-size: 1.5rem;
+        border-bottom: 5px solid ${GlobalColors.blue};
+        font-family: ${GlobalFonts.secondary};
+    }
+` 
 
 const Home = () => {
     const { width, height } = useWindowDimensions();
@@ -75,6 +94,19 @@ const Home = () => {
                     </div>
                 </Parallax>
             </HeroContainer>
+            <AboutContainer>
+                <Parallax translateX={[10, 0]}>   
+                    <h2>Siapakah <span className="underline">SIJA'26</span>?</h2>
+                </Parallax>
+                <div className="AboutContainer__TextHolder">
+                    <div className="TextHolder">
+                        <p>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam esse accusantium beatae cupiditate officiis consequatur ipsam dolorem non earum porro temporibus sapiente deleniti inventore quis possimus et, incidunt eum fugit.
+                        </p>
+                    </div>
+                    <div className="TextHolder_Line"></div>
+                </div>
+            </AboutContainer>
         </StyledSection>
      );
 }
