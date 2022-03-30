@@ -102,7 +102,31 @@ export const AboutContainer = styled.div`
             gap: 50px;
         }
     }
-` 
+`   
+
+export const SubjectContainer = styled.div`
+    margin: 300px 0;
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    .SubjectContainer__sections {
+        margin: 50px 0;
+        display: flex;
+        justify-content: space-between;
+        background-color: blue;
+
+        .SubjectContainer__abstract {
+            background-color: ${GlobalColors.grey};
+            width: 5%;
+            font-size: 2rem;
+            line-height: 70px;
+            height: 100%;
+        }
+    }
+
+`
 
 const Home = () => {
     const { width, height } = useWindowDimensions();
@@ -114,6 +138,7 @@ const Home = () => {
                 <Parallax translateX={[10, 0]}>   
                     <h2>Selamat Datang di <span className="underline">SIJA’26</span></h2>
                 </Parallax>
+                {/* <p className="overlayedText" ></p> */}
                 <div className="HeroContainer__ImgHolder">
                     <img src={HeroSijaImg} alt="Bruh" />
                 </div>
@@ -135,7 +160,7 @@ const Home = () => {
                 <div className="AboutContainer__TextHolder">
                     <div className="TextHolder">
                         <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam esse accusantium beatae cupiditate officiis consequatur ipsam dolorem non earum porro temporibus sapiente deleniti inventore quis possimus et, incidunt eum fugit.
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam esse accusantium beatae cupiditate officiis consequatur ipsam dolorem non earum porro temporibus.
                         </p>
                     </div>
                     <div className="TextHolder_Line"></div>
@@ -156,10 +181,27 @@ const Home = () => {
                     </div>
                     <div className="Counter">
                         <h2>9</h2>
-                        <p>Pelajaran</p>
+                        <p>Mata Pelajaran</p>
                     </div>
                 </div>
             </AboutContainer>
+            <SubjectContainer>
+                <h2>Lomba yang dimenangkan <span className="underline">SIJA’26</span></h2>
+                <div className="SubjectContainer__sections">
+                    <div className="SubjectContainer__abstract">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis rem maiores nemo quae iusto asperiores! Commodi explicabo veritatis ducimu
+                    </div>
+                    <div className="subjects">
+                        <div className="subject" >
+                            <img height="0" src="https://i.redd.it/8yiph0bx96d41.jpg" alt="" />
+                            <h3>Psatir Handal</h3>
+                            <p>Juara 69</p>
+                            <p>2069</p>
+                        </div>
+                    </div>
+                </div>
+
+            </SubjectContainer>
         </StyledSection>
      );
 }
