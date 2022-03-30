@@ -7,8 +7,6 @@ import Navbar from "../components/Navbar";
 import { GlobalColors, GlobalFonts } from "../globals";
 import { StyledSection } from "../components/styledComponents";
 
-import HeroSijaImg from "./../assets/img/hero-sija.png";
-
 export const HeroContainer = styled.div`
     padding: 150px 0 0 0;
     position: relative;
@@ -18,11 +16,14 @@ export const HeroContainer = styled.div`
     }
 
     .HeroContainer__ImgHolder {
-        margin: 20px 0 0 0;
+        margin: 50px 0 0 0;
         width: 900px;
         max-width: 100%;
         overflow: hidden;
         
+        h1 {
+            font-size: 5rem;
+        }
         img {
             transition: all 0.5s ease;
             width: 100%;
@@ -61,6 +62,7 @@ export const AboutContainer = styled.div`
     }
     
     .AboutContainer__TextHolder {
+        margin: 40px 0 0 0;
         background: ${GlobalColors.grey};
         /* width: 50px; */
         max-width: 100%;
@@ -104,25 +106,59 @@ export const AboutContainer = styled.div`
     }
 `   
 
-export const SubjectContainer = styled.div`
+export const ChampsContainer = styled.div`
     margin: 300px 0;
 
     h2 {
         font-size: 3rem;
     }
 
-    .SubjectContainer__sections {
+    .ChampsContainer__sections {
         margin: 50px 0;
         display: flex;
         justify-content: space-between;
-        background-color: blue;
+        /* background-color: blue; */
 
-        .SubjectContainer__abstract {
+        .ChampsContainer__abstract {
             background-color: ${GlobalColors.grey};
-            width: 5%;
+            width: 2%;
             font-size: 2rem;
             line-height: 70px;
+            letter-spacing: 10px;
             height: 100%;
+        }
+
+        .subjects {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+
+            .subject {
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                    filter: grayscale(50%);
+                }
+
+                h3 {
+                    font-size: 3rem;
+                }
+
+                p {
+                    font-size: 1.5rem;
+                }
+
+                &:nth-child(odd) {
+                    width: 75%;
+                }
+            }
         }
     }
 
@@ -148,7 +184,10 @@ const Home = () => {
                 </Parallax>
                 {/* <p className="overlayedText" ></p> */}
                 <div className="HeroContainer__ImgHolder">
-                    <img src={HeroSijaImg} alt="Bruh" />
+                    {/* <img src={HeroSijaImg} alt="Bruh" /> */}
+                    <h1>SMKN</h1>
+                    <h1><span className="underline">Terbaik</span></h1>
+                    <h1>Se-Jakarta</h1>
                 </div>
                 <Parallax translateY={width > 1024 ? [-50, -200] : [0, 0]} translateX={width > 1024 ? [62, 62] : [0, 0]} >
                     <div className="HeroContainer__TextHolder">
@@ -200,23 +239,47 @@ const Home = () => {
                     </div>
                 </div>
             </AboutContainer>
-            <SubjectContainer>
-                <h2>Lomba yang dimenangkan <span className="underline">SIJA’26</span></h2>
-                <div className="SubjectContainer__sections">
-                    <div className="SubjectContainer__abstract">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque reiciendis rem maiores nemo quae iusto asperiores! Commodi explicabo veritatis ducimu
+            <ChampsContainer>
+                <Parallax translateX={[10, 0]}>
+                    <h2>Lomba yang dimenangkan <span className="underline">SIJA’26</span></h2>
+                </Parallax>   
+
+                <div className="ChampsContainer__sections">
+                    <div className="ChampsContainer__abstract">
+                        champions, grind, victory, blood, sweat, tears, pain, war, battle, suffer, process, believer, revolution 
                     </div>
                     <div className="subjects">
                         <div className="subject" >
-                            <img height="0" src="https://i.redd.it/8yiph0bx96d41.jpg" alt="" />
-                            <h3>Psatir Handal</h3>
-                            <p>Juara 69</p>
-                            <p>2069</p>
+                            <img src="https://merriam-webster.com/assets/ld/word_of_the_day/images/4671/large.jpg" alt="" />
+                            <div className="description">
+                                <h3>Psatir Handal</h3>
+                                <p>Lomba KKSI</p>
+                                <p>Juara 69</p>
+                                <p>Tahun 2069</p>
+                            </div>
+                        </div>
+                        <div className="subject" >
+                            <img src="https://merriam-webster.com/assets/ld/word_of_the_day/images/4671/large.jpg" alt="" />
+                            <div className="description">
+                                <h3>Psatir Handal</h3>
+                                <p>Lomba KKSI</p>
+                                <p>Juara 69</p>
+                                <p>Tahun 2069</p>
+                            </div>
+                        </div>
+                        <div className="subject" >
+                            <img src="https://merriam-webster.com/assets/ld/word_of_the_day/images/4671/large.jpg" alt="" />
+                            <div className="description">
+                                <h3>Psatir Handal</h3>
+                                <p>Lomba KKSI</p>
+                                <p>Juara 69</p>
+                                <p>Tahun 2069</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-            </SubjectContainer>
+            </ChampsContainer>
         </StyledSection>
      );
 }
