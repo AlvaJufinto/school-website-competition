@@ -1,1 +1,1 @@
-
+website absurd yang dibuat sambil dengerin lagu Ben Rector.
