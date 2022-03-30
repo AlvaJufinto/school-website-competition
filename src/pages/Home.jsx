@@ -116,7 +116,7 @@ export const AboutContainer = styled.div`
 
 export const ChampsContainer = styled.div`
     margin: 300px 0 200px 0;
-
+    
     h2 {
         font-size: 3rem;
     }
@@ -286,7 +286,7 @@ const Home = () => {
 
                     <div className="ChampsContainer__sections">
                         <div className="ChampsContainer__abstract">
-                            champions, grind, victory, blood, sweat, tears, pain, war, battle, suffer, process, believer, revolution 
+                            champions, grind, victory, blood, sweat, tears, pain, devotion, battle, suffer, process, believer, revolution 
                         </div>
                         <div className="subjects">
                             <div className="subject" >

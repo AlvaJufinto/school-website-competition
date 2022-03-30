@@ -4,6 +4,7 @@ import { StyledLink } from "./styledComponents";
 import { GlobalColors, GlobalFonts, GlobalMeasurements } from "./../globals";
 
 export const Nav = styled.div`
+    background-color: black;
     position: fixed;
     z-index: 2;
     left: 0;
@@ -133,10 +134,33 @@ export const NavContainer = styled.div`
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    let listener = null
+    const [scrollState, setScrollState] = useState("top")
+  
+    useEffect(() => {
+      listener = document.addEventListener("scroll", e => {
+        var scrolled = document.scrollingElement.scrollTop
+        if (scrolled >= 120) {
+          if (scrollState !== "bottom") {
+            setScrollState("bottom")
+            console.log("Bottom")
+          }
+        } else {
+          if (scrollState !== "top") {
+            setScrollState("top")
+            console.log("Top")
+          }
+        }
+      })
+      return () => {
+        document.removeEventListener("scroll", listener)
+      }
+    }, [scrollState])
+
 
     return (
         <>
-            <Nav>
+            <Nav isTop={scrollState === "top" ? true : false } >
                 <div className="Nav__Title">
                     <h3>SIJA'26</h3>
                 </div>

@@ -13,7 +13,7 @@ export const GlobalStyles = createGlobalStyle`
 
     body {
         height: 200vh;
-        background: #111;
+        background: black;
         overflow-x: hidden;
         
         &:before {
