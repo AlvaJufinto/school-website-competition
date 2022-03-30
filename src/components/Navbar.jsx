@@ -3,13 +3,17 @@ import styled from "styled-components";
 import { StyledLink } from "./styledComponents";
 import { GlobalColors, GlobalFonts, GlobalMeasurements } from "./../globals";
 
-export const Nav = styled.div`
-    background: ${props => props.isOpen ? GlobalColors.black : 'black'};
-    transition:  0.7s ease-in;
+export const NavWrapper = styled.div`
+    width: 100%;
     position: fixed;
     z-index: 2;
     left: 0;
     right: 0;
+    background: ${props => props.isOpen ? GlobalColors.black : 'black'};
+`
+
+export const Nav = styled.div`
+    transition:  0.7s ease-in;
     padding: 20px 0px;
     margin: auto;
     width: 90%;
@@ -73,7 +77,7 @@ export const NavContainer = styled.div`
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 1;
+    z-index: -1;
     background: ${GlobalColors.black};
     /* background-color: black; */
     
@@ -96,7 +100,7 @@ export const NavContainer = styled.div`
         height: 100%;
         font-weight: bold;
         line-height: 1.2;
-        font-size: 10rem;
+        font-size: 7rem;
         color: transparent;
         -webkit-text-stroke: 2px white;
         letter-spacing: 25px;
@@ -138,7 +142,7 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     let listener = null
     const [scrollState, setScrollState] = useState("top")
-  
+    
     useEffect(() => {
       listener = document.addEventListener("scroll", e => {
         var scrolled = document.scrollingElement.scrollTop
@@ -162,31 +166,34 @@ const Navbar = () => {
 
     return (
         <>
-            <Nav isOpen={isOpen} isTop={scrollState === "top" ? true : false } >
-                <div className="Nav__Title">
-                    <h3>SIJA'26</h3>
-                </div>
-                <div className="Nav__Burger" isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} >
-                    <div className={`BurgerTop ${isOpen ? 'active' : ""}`}></div>
-                    <div className={`BurgerMid ${isOpen ? 'active' : ""}`} isOpen={isOpen}></div>
-                    <div className={`BurgerBottom ${isOpen ? 'active' : ""}`} isOpen={isOpen}></div>
-                </div>
-            </Nav>
-            <NavContainer isOpen={isOpen}>
-                <section>
-                    <div className="NavContainer__Left">
-                        <p>SMKN</p>
-                        <p>26</p>
-                        <p>JAKARTA</p>
+            <NavWrapper>
+                <Nav isOpen={isOpen} isTop={scrollState === "top" ? true : false } >
+                    <div className="Nav__Title">
+                        <h3>SIJA'26</h3>
                     </div>
-                    <div className="NavContainer__Links" >
-                        <StyledLink to="/" >Home</StyledLink>
-                        <StyledLink to="/gallery" >Gallery</StyledLink>
-                        <StyledLink to="/Jobs" >Jobs</StyledLink>
+                    <div className="Nav__Burger" isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} >
+                        <div className={`BurgerTop ${isOpen ? 'active' : ""}`}></div>
+                        <div className={`BurgerMid ${isOpen ? 'active' : ""}`} isOpen={isOpen}></div>
+                        <div className={`BurgerBottom ${isOpen ? 'active' : ""}`} isOpen={isOpen}></div>
                     </div>
-                </section>
-            </NavContainer>
-        </> 
+                </Nav>
+                <NavContainer isOpen={isOpen}>
+                    <section>
+                        <div className="NavContainer__Left">
+                            <p>SMKN</p>
+                            <p>26</p>
+                            <p>JAKARTA</p>
+                        </div>
+                        <div className="NavContainer__Links" >
+                            <StyledLink to="/" >Home</StyledLink>
+                            <StyledLink to="/gallery" >Gallery</StyledLink>
+                            <StyledLink to="/Jobs" >Jobs</StyledLink>
+                        </div>
+                    </section>
+                </NavContainer>
+            </NavWrapper> 
+        </>
+        
      );
 }
  
