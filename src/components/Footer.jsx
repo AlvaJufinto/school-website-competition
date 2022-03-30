@@ -3,9 +3,6 @@ import { GlobalColors, GlobalFonts, GlobalMeasurements } from "../globals";
 import { StyledSection, StyledLink } from "../components/styledComponents";
 
 export const FooterContainer = styled.div`
-    width: 90%;
-    max-width: ${GlobalMeasurements.containerWidth}px;
-
     .FooterContainer__Top {
         margin: 0 0 20px 0;
         display: flex;
@@ -36,8 +33,6 @@ export const FooterContainer = styled.div`
     }   
 
     @media (max-width: 1024px) {
-        width: 100%;
-
         .FooterContainer__Top {
             width: 100%;
             min-height: 300px;

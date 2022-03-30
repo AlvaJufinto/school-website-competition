@@ -4,7 +4,8 @@ import { StyledLink } from "./styledComponents";
 import { GlobalColors, GlobalFonts, GlobalMeasurements } from "./../globals";
 
 export const Nav = styled.div`
-    background-color: black;
+    background: ${props => props.isOpen ? GlobalColors.black : 'black'};
+    transition:  0.7s ease-in;
     position: fixed;
     z-index: 2;
     left: 0;
@@ -64,7 +65,7 @@ export const Nav = styled.div`
 `
 
 export const NavContainer = styled.div`
-    transition: 1s;
+    transition: 2s;
     clip-path: ${props => props.isOpen ? "ellipse(200vh 3000vw at 100% -15%)" : 'ellipse(130px 140px at 100% -20%)'};
     height: 100vh;
     width: 100vw;
@@ -73,7 +74,8 @@ export const NavContainer = styled.div`
     top: 0;
     right: 0;
     z-index: 1;
-    background: ${GlobalColors.grey};
+    background: ${GlobalColors.black};
+    /* background-color: black; */
     
     section {
         display: flex;
@@ -160,7 +162,7 @@ const Navbar = () => {
 
     return (
         <>
-            <Nav isTop={scrollState === "top" ? true : false } >
+            <Nav isOpen={isOpen} isTop={scrollState === "top" ? true : false } >
                 <div className="Nav__Title">
                     <h3>SIJA'26</h3>
                 </div>
@@ -179,8 +181,8 @@ const Navbar = () => {
                     </div>
                     <div className="NavContainer__Links" >
                         <StyledLink to="/" >Home</StyledLink>
-                        <StyledLink to="/sija" >SIJA</StyledLink>
-                        <StyledLink to="/news" >News</StyledLink>
+                        <StyledLink to="/gallery" >Gallery</StyledLink>
+                        <StyledLink to="/Jobs" >Jobs</StyledLink>
                     </div>
                 </section>
             </NavContainer>

@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 
 import Home from "./pages/Home";
+import Gallery from './pages/Gallery';
 
 import { GlobalStyles } from "./globals";
 
@@ -20,6 +21,7 @@ function App() {
         <ParallaxProvider>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/gallery" element={<Gallery />} />
           </Routes>
         </ParallaxProvider>
         </div>
