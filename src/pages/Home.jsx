@@ -4,6 +4,7 @@ import useWindowDimensions from "./../hooks/useWindowDimensions";
 // import { KeyboardCommandKeyIcon } from '@mui/icons-material';
 
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { GlobalColors, GlobalFonts } from "../globals";
 import { StyledSection } from "../components/styledComponents";
 
@@ -134,6 +135,7 @@ export const ChampsContainer = styled.div`
             gap: 50px;
 
             .subject {
+                padding: 20px;
                 width: 50%;
                 display: flex;
                 justify-content: center;
@@ -146,14 +148,22 @@ export const ChampsContainer = styled.div`
                     object-position: center;
                     filter: grayscale(50%);
                 }
+                
+                .description {
+                    background-color: ${GlobalColors.grey};
+                    padding: 20px;
+                    border-right: 5px solid ${GlobalColors.blue};
 
-                h3 {
-                    font-size: 3rem;
+                    h3 {
+                        font-size: 3rem;
+                    }
+    
+                    p {
+                        font-size: 1.25rem;
+                        font-family: ${GlobalFonts.secondary};
+                    }
                 }
 
-                p {
-                    font-size: 1.5rem;
-                }
 
                 &:nth-child(odd) {
                     width: 75%;
@@ -162,6 +172,34 @@ export const ChampsContainer = styled.div`
         }
     }
 
+    @media (max-width: 1024px) {
+        h2 {
+            text-align: center;
+        }
+
+        .ChampsContainer__sections {
+            display: block;
+
+            .ChampsContainer__abstract{ 
+                display: none;
+            }
+
+            .subjects {
+                align-items: center;
+                width: 100%;
+
+                .subject {
+                    display: block;
+                    width: 75%;   
+                    text-align: center;
+
+                    &:nth-child(odd) {
+                        width: 75%;
+                    }
+                }
+            }
+        }
+    }
 `
 
 export const CounterContainer = styled.div`
@@ -176,111 +214,113 @@ const Home = () => {
     const { width, height } = useWindowDimensions();
 
     return ( 
-        <StyledSection>
-            <Navbar />
-            <HeroContainer>
-                <Parallax translateX={[10, 0]}>   
-                    <h2>Selamat Datang di <span className="underline">SIJA’26</span></h2>
-                </Parallax>
-                {/* <p className="overlayedText" ></p> */}
-                <div className="HeroContainer__ImgHolder">
-                    {/* <img src={HeroSijaImg} alt="Bruh" /> */}
-                    <h1>SMKN</h1>
-                    <h1><span className="underline">Terbaik</span></h1>
-                    <h1>Se-Jakarta</h1>
-                </div>
-                <Parallax translateY={width > 1024 ? [-50, -200] : [0, 0]} translateX={width > 1024 ? [62, 62] : [0, 0]} >
-                    <div className="HeroContainer__TextHolder">
+        <>
+            <StyledSection>
+                <Navbar />
+                <HeroContainer>
+                    <Parallax translateX={[10, 0]}>   
+                        <h2>Selamat Datang di <span className="underline">SIJA’26</span></h2>
+                    </Parallax>
+                    {/* <p className="overlayedText" ></p> */}
+                    <div className="HeroContainer__ImgHolder">
+                        {/* <img src={HeroSijaImg} alt="Bruh" /> */}
+                        <h1>SMKN</h1>
+                        <h1><span className="underline">Terbaik</span></h1>
+                        <h1>Se-Jakarta</h1>
+                    </div>
+                    <Parallax translateY={width > 1024 ? [-50, -200] : [0, 0]} translateX={width > 1024 ? [62, 62] : [0, 0]} >
+                        <div className="HeroContainer__TextHolder">
+                            <div className="TextHolder">
+                                <p>
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam esse accusantium beatae cupiditate officiis consequatur ipsam dolorem non earum porro temporibus sapiente deleniti inventore quis possimus et, incidunt eum fugit.
+                                </p>
+                            </div>
+                            <div className="TextHolder_Line"></div>
+                        </div>
+                    </Parallax>
+                    </HeroContainer>
+                    {/* <CounterContainer>
+                        <h2>Jumlah Guru dan Murid</h2>
+                        <div className="Counter__Box">
+                            <p>50</p>
+                            <p>Guru dan siswa</p>
+                        </div>
+                    </Parallax> */}
+                    <AboutContainer>
+                    <Parallax translateX={[0, 10]}>   
+                        <h2>Siapakah <span className="underline">SIJA'26</span>?</h2>
+                    </Parallax>
+                    <div className="AboutContainer__TextHolder">
                         <div className="TextHolder">
                             <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam esse accusantium beatae cupiditate officiis consequatur ipsam dolorem non earum porro temporibus sapiente deleniti inventore quis possimus et, incidunt eum fugit.
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam esse accusantium beatae cupiditate officiis consequatur ipsam dolorem non earum porro temporibus.
                             </p>
                         </div>
                         <div className="TextHolder_Line"></div>
                     </div>
-                </Parallax>
-                </HeroContainer>
-                {/* <CounterContainer>
-                    <h2>Jumlah Guru dan Murid</h2>
-                    <div className="Counter__Box">
-                        <p>50</p>
-                        <p>Guru dan siswa</p>
-                    </div>
-                </Parallax> */}
-                <AboutContainer>
-                <Parallax translateX={[0, 10]}>   
-                    <h2>Siapakah <span className="underline">SIJA'26</span>?</h2>
-                </Parallax>
-                <div className="AboutContainer__TextHolder">
-                    <div className="TextHolder">
-                        <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam esse accusantium beatae cupiditate officiis consequatur ipsam dolorem non earum porro temporibus.
-                        </p>
-                    </div>
-                    <div className="TextHolder_Line"></div>
-                </div>
 
-                <Parallax translateX={width > 1024 ? [5, -20] : [0, 0]}>
-                    <h2 className="statistic" >Statistik  <span className="underline">SIJA’26</span></h2>
-                </Parallax>
-                <div className="AboutContainer__CounterHolder">
+                    <Parallax translateX={width > 1024 ? [5, -20] : [0, 0]}>
+                        <h2 className="statistic" >Statistik  <span className="underline">SIJA’26</span></h2>
+                    </Parallax>
+                    <div className="AboutContainer__CounterHolder">
 
-                    <div className="Counter">
-                        <h2>3</h2>
-                        <p>Pendidik</p>
-                    </div>
-                    <div className="Counter">
-                        <h2>200</h2>
-                        <p>Peserta Didik</p>
-                    </div>
-                    <div className="Counter">
-                        <h2>9</h2>
-                        <p>Mata Pelajaran</p>
-                    </div>
-                </div>
-            </AboutContainer>
-            <ChampsContainer>
-                <Parallax translateX={[10, 0]}>
-                    <h2>Lomba yang dimenangkan <span className="underline">SIJA’26</span></h2>
-                </Parallax>   
-
-                <div className="ChampsContainer__sections">
-                    <div className="ChampsContainer__abstract">
-                        champions, grind, victory, blood, sweat, tears, pain, war, battle, suffer, process, believer, revolution 
-                    </div>
-                    <div className="subjects">
-                        <div className="subject" >
-                            <img src="https://merriam-webster.com/assets/ld/word_of_the_day/images/4671/large.jpg" alt="" />
-                            <div className="description">
-                                <h3>Psatir Handal</h3>
-                                <p>Lomba KKSI</p>
-                                <p>Juara 69</p>
-                                <p>Tahun 2069</p>
-                            </div>
+                        <div className="Counter">
+                            <h2>3</h2>
+                            <p>Pendidik</p>
                         </div>
-                        <div className="subject" >
-                            <img src="https://merriam-webster.com/assets/ld/word_of_the_day/images/4671/large.jpg" alt="" />
-                            <div className="description">
-                                <h3>Psatir Handal</h3>
-                                <p>Lomba KKSI</p>
-                                <p>Juara 69</p>
-                                <p>Tahun 2069</p>
-                            </div>
+                        <div className="Counter">
+                            <h2>200</h2>
+                            <p>Peserta Didik</p>
                         </div>
-                        <div className="subject" >
-                            <img src="https://merriam-webster.com/assets/ld/word_of_the_day/images/4671/large.jpg" alt="" />
-                            <div className="description">
-                                <h3>Psatir Handal</h3>
-                                <p>Lomba KKSI</p>
-                                <p>Juara 69</p>
-                                <p>Tahun 2069</p>
+                        <div className="Counter">
+                            <h2>9</h2>
+                            <p>Mata Pelajaran</p>
+                        </div>
+                    </div>
+                </AboutContainer>
+                <ChampsContainer>
+                    <Parallax translateX={width > 1024 ? [10, 0] : [0, 0]}>
+                        <h2>Lomba yang dimenangkan <span className="underline">SIJA’26</span></h2>
+                    </Parallax>   
+
+                    <div className="ChampsContainer__sections">
+                        <div className="ChampsContainer__abstract">
+                            champions, grind, victory, blood, sweat, tears, pain, war, battle, suffer, process, believer, revolution 
+                        </div>
+                        <div className="subjects">
+                            <div className="subject" >
+                                <img src="https://merriam-webster.com/assets/ld/word_of_the_day/images/4671/large.jpg" alt="" />
+                                <div className="description">
+                                    <h3>Psatir Handal</h3>
+                                    <p>Lomba KKSI</p>
+                                    <p>Juara 69</p>
+                                    <p>Tahun 2069</p>
+                                </div>
+                            </div>
+                            <div className="subject" >
+                                <img src="https://merriam-webster.com/assets/ld/word_of_the_day/images/4671/large.jpg" alt="" />
+                                <div className="description">
+                                    <h3>Psatir Handal</h3>
+                                    <p>Lomba KKSI</p>
+                                    <p>Juara 69</p>
+                                    <p>Tahun 2069</p>
+                                </div>
+                            </div>
+                            <div className="subject" >
+                                <img src="https://merriam-webster.com/assets/ld/word_of_the_day/images/4671/large.jpg" alt="" />
+                                <div className="description">
+                                    <h3>Psatir Handal</h3>
+                                    <p>Lomba KKSI</p>
+                                    <p>Juara 69</p>
+                                    <p>Tahun 2069</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-            </ChampsContainer>
-        </StyledSection>
+                </ChampsContainer>
+                    <Footer />
+            </StyledSection>
+        </>
      );
 }
  
