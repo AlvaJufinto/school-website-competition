@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import styled from "styled-components";
 import { StyledLink } from "./styledComponents";
-import { GlobalColors, GlobalMeasurements } from "./../globals";
+import { GlobalColors, GlobalFonts, GlobalMeasurements } from "./../globals";
 
 export const Nav = styled.div`
     position: fixed;
@@ -82,6 +82,7 @@ export const NavContainer = styled.div`
         margin: auto;
         width: 90%;
         max-width: ${GlobalMeasurements.containerWidth}px;
+        font-family: ${GlobalFonts.primary};
     }
 
     .NavContainer__Left {

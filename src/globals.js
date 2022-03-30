@@ -5,9 +5,8 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Source Sans Pro', sans-serif;    
     }
-    
+
     html {
         scroll-behavior: smooth;
     }
@@ -56,5 +55,6 @@ export const GlobalMeasurements = {
 }
 
 export const GlobalFonts = {
-    primary: 'Poppins',
+    primary: 'PT Serif',
+    secondary: 'Raleway',
 }
