@@ -51,31 +51,49 @@ export const HeroContainer = styled.div`
     }
 `
 
+export const CounterContainer = styled.div`
+    
+    h2 {
+        text-align: center;
+        font-size: 3rem;
+    }
+`
+
 const Home = () => {
     const { width, height } = useWindowDimensions();
 
     return ( 
-        <StyledSection>
-            <Navbar />
-            <HeroContainer>
-                <Parallax translateX={[10, 0]}>   
-                    <h2>Selamat Datang di <span className="underline">SIJA’26</span></h2>
-                </Parallax>
-                <div className="HeroContainer__ImgHolder">
-                    <img src={HeroSijaImg} alt="Bruh" />
-                </div>
-                <Parallax translateY={width > 1024 ? [-50, -200] : [0, 0]} translateX={width > 1024 ? [62, 62] : [0, 0]} >
-                    <div className="HeroContainer__TextHolder">
-                        <div className="TextHolder">
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam esse accusantium beatae cupiditate officiis consequatur ipsam dolorem non earum porro temporibus sapiente deleniti inventore quis possimus et, incidunt eum fugit.
-                            </p>
-                        </div>
-                        <div className="TextHolder_Line"></div>
+        <>
+        
+            <StyledSection>
+                <Navbar />
+                <HeroContainer>
+                    <Parallax translateX={[10, 0]}>   
+                        <h2>Selamat Datang di <span className="underline">SIJA’26</span></h2>
+                    </Parallax>
+                    <div className="HeroContainer__ImgHolder">
+                        <img src={HeroSijaImg} alt="Bruh" />
                     </div>
-                </Parallax>
-            </HeroContainer>
-        </StyledSection>
+                    <Parallax translateY={width > 1024 ? [-50, -200] : [0, 0]} translateX={width > 1024 ? [62, 62] : [0, 0]} >
+                        <div className="HeroContainer__TextHolder">
+                            <div className="TextHolder">
+                                <p>
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam esse accusantium beatae cupiditate officiis consequatur ipsam dolorem non earum porro temporibus sapiente deleniti inventore quis possimus et, incidunt eum fugit.
+                                </p>
+                            </div>
+                            <div className="TextHolder_Line"></div>
+                        </div>
+                    </Parallax>
+                </HeroContainer>
+                <CounterContainer>
+                    <h2>Jumlah Guru dan Murid</h2>
+                    <div className="Counter__Box">
+                        <p>50</p>
+                        <p>Guru dan siswa</p>
+                    </div>
+                </CounterContainer>
+            </StyledSection>
+        </>
      );
 }
  
