@@ -26,9 +26,9 @@ export const GlobalStyles = createGlobalStyle`
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 10rem;
-            font-weight: 700;
+            font-weight: bold;
             color: transparent;
-            -webkit-text-stroke: 2px #555;
+            -webkit-text-stroke: 1px #555;
         
         }
     }

@@ -17,7 +17,6 @@ export const StyledLink = styled(Link)`
 `
 
 export const StyledSection = styled.div`
-    height: 150vh;
     margin: 0 auto;
     width: 90%;
     max-width: ${GlobalMeasurements.containerWidth}px;

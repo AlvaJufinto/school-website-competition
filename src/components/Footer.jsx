@@ -3,6 +3,8 @@ import { GlobalColors, GlobalFonts, GlobalMeasurements } from "../globals";
 import { StyledSection, StyledLink } from "../components/styledComponents";
 
 export const FooterContainer = styled.div`
+    color: 'white';
+
     .FooterContainer__Top {
         margin: 0 0 20px 0;
         display: flex;
