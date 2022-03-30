@@ -52,15 +52,6 @@ export const HeroContainer = styled.div`
     }
 `
 
-<<<<<<< HEAD
-export const CounterContainer = styled.div`
-    
-    h2 {
-        text-align: center;
-        font-size: 3rem;
-    }
-`
-=======
 export const AboutContainer = styled.div`
     margin: 40px 0;
     position: relative;
@@ -112,14 +103,19 @@ export const AboutContainer = styled.div`
         }
     }
 ` 
->>>>>>> bd020570f0da7cc18ff7e5ae0223cd084ddcca56
+
+export const CounterContainer = styled.div`
+    
+    h2 {
+        text-align: center;
+        font-size: 3rem;
+    }
+`   
 
 const Home = () => {
     const { width, height } = useWindowDimensions();
 
     return ( 
-        <>
-        
             <StyledSection>
                 <Navbar />
                 <HeroContainer>
@@ -140,20 +136,14 @@ const Home = () => {
                         </div>
                     </Parallax>
                 </HeroContainer>
-                <CounterContainer>
+                {/* <CounterContainer>
                     <h2>Jumlah Guru dan Murid</h2>
                     <div className="Counter__Box">
                         <p>50</p>
                         <p>Guru dan siswa</p>
                     </div>
-<<<<<<< HEAD
-                </CounterContainer>
-            </StyledSection>
-        </>
-=======
-                </Parallax>
-            </HeroContainer>
-            <AboutContainer>
+                </Parallax> */}
+                <AboutContainer>
                 <Parallax translateX={[0, 10]}>   
                     <h2>Siapakah <span className="underline">SIJA'26</span>?</h2>
                 </Parallax>
@@ -186,7 +176,6 @@ const Home = () => {
                 </div>
             </AboutContainer>
         </StyledSection>
->>>>>>> bd020570f0da7cc18ff7e5ae0223cd084ddcca56
      );
 }
  
