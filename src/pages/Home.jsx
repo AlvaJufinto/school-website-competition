@@ -128,6 +128,14 @@ export const SubjectContainer = styled.div`
 
 `
 
+export const CounterContainer = styled.div`
+    
+    h2 {
+        text-align: center;
+        font-size: 3rem;
+    }
+`   
+
 const Home = () => {
     const { width, height } = useWindowDimensions();
 
@@ -152,8 +160,15 @@ const Home = () => {
                         <div className="TextHolder_Line"></div>
                     </div>
                 </Parallax>
-            </HeroContainer>
-            <AboutContainer>
+                </HeroContainer>
+                {/* <CounterContainer>
+                    <h2>Jumlah Guru dan Murid</h2>
+                    <div className="Counter__Box">
+                        <p>50</p>
+                        <p>Guru dan siswa</p>
+                    </div>
+                </Parallax> */}
+                <AboutContainer>
                 <Parallax translateX={[0, 10]}>   
                     <h2>Siapakah <span className="underline">SIJA'26</span>?</h2>
                 </Parallax>

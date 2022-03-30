@@ -12,6 +12,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
+        height: 200vh;
         background: #111;
         overflow-x: hidden;
         
@@ -36,7 +37,7 @@ export const GlobalStyles = createGlobalStyle`
         text-decoration-line: underline;
         text-decoration-style: "solid";
         text-decoration-color: #0587FF;
-        text-decoration-thickness: 5px;
+        text-decoration-thickness: 8px;
     }
 `
 
