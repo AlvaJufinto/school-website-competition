@@ -7,6 +7,7 @@ export const FooterContainer = styled.div`
     max-width: ${GlobalMeasurements.containerWidth}px;
 
     .FooterContainer__Top {
+        margin: 0 0 20px 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -19,7 +20,6 @@ export const FooterContainer = styled.div`
             display: flex;
             gap: 20px;
             font-size: 1.5rem;
-
         }
 
         p {
@@ -34,6 +34,31 @@ export const FooterContainer = styled.div`
         align-items: center;
         height: 50px;
     }   
+
+    @media (max-width: 1024px) {
+        width: 100%;
+
+        .FooterContainer__Top {
+            width: 100%;
+            min-height: 300px;
+            flex-direction: column;
+            align-items: center;
+
+            .FooterContainer__SocialMedia {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            p {
+                text-align: center;
+                font-size: 2rem;
+            }
+        }
+
+        .FooterContainer__Bottom {
+            flex-direction: column;
+        }
+    }
 `
 
 const Footer = () => {
