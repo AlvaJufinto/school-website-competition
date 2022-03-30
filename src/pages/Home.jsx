@@ -13,11 +13,13 @@ export const HeroContainer = styled.div`
     position: relative;
 
     h2 {
-        font-size: 3rem;
+        font-size: 2rem;
+        font-family: ${GlobalFonts.secondary};
+        font-weight: 200;
     }
 
     .HeroContainer__ImgHolder {
-        margin: 50px 0 0 0;
+        margin: 20px 0 0 0;
         width: 900px;
         max-width: 100%;
         overflow: hidden;
@@ -37,13 +39,14 @@ export const HeroContainer = styled.div`
     }
 
     .HeroContainer__TextHolder {
-        background: ${GlobalColors.grey};
+        /* background: ${GlobalColors.grey}; */
         width: 500px;
         max-width: 100%;
         padding: 30px;
         font-size: 1.5rem;
         border-bottom: 5px solid ${GlobalColors.blue};
         font-family: ${GlobalFonts.secondary};
+        font-weight: 200;
     }
 
     @media (max-width: 1024px) {
@@ -55,7 +58,7 @@ export const HeroContainer = styled.div`
 `
 
 export const AboutContainer = styled.div`
-    margin: 40px 0;
+    margin: 0px 0;
     position: relative;
 
     h2 {
@@ -64,13 +67,15 @@ export const AboutContainer = styled.div`
     
     .AboutContainer__TextHolder {
         margin: 40px 0 0 0;
-        background: ${GlobalColors.grey};
+        /* background: ${GlobalColors.grey}; */
         /* width: 50px; */
         max-width: 100%;
         padding: 30px;
         font-size: 1.5rem;
         border-bottom: 5px solid ${GlobalColors.blue};
         font-family: ${GlobalFonts.secondary};
+        font-weight: 200;
+
     }
 
     .statistic {
@@ -100,6 +105,8 @@ export const AboutContainer = styled.div`
     }
 
     @media (max-width: 1024px) {
+        margin: 250px 0px;
+
         .AboutContainer__CounterHolder {
             flex-direction: column;
             gap: 50px;
@@ -108,7 +115,7 @@ export const AboutContainer = styled.div`
 `   
 
 export const ChampsContainer = styled.div`
-    margin: 300px 0;
+    margin: 300px 0 200px 0;
 
     h2 {
         font-size: 3rem;
@@ -147,23 +154,24 @@ export const ChampsContainer = styled.div`
                     object-fit: cover;
                     object-position: center;
                     filter: grayscale(50%);
+                    border-right: 5px solid ${GlobalColors.blue};
                 }
                 
                 .description {
-                    background-color: ${GlobalColors.grey};
+                    /* background-color: ${GlobalColors.grey}; */
                     padding: 20px;
-                    border-right: 5px solid ${GlobalColors.blue};
 
                     h3 {
                         font-size: 3rem;
+                        margin: 0 0 20px 0;
                     }
     
                     p {
-                        font-size: 1.25rem;
+                        font-size: 1.75rem;
                         font-family: ${GlobalFonts.secondary};
+                        font-weight: 100;
                     }
                 }
-
 
                 &:nth-child(odd) {
                     width: 75%;
@@ -224,7 +232,7 @@ const Home = () => {
                     {/* <p className="overlayedText" ></p> */}
                     <div className="HeroContainer__ImgHolder">
                         {/* <img src={HeroSijaImg} alt="Bruh" /> */}
-                        <h1>SMKN</h1>
+                        <h1>Jurusan SIJA</h1>
                         <h1><span className="underline">Terbaik</span></h1>
                         <h1>Se-Jakarta</h1>
                     </div>
@@ -239,13 +247,6 @@ const Home = () => {
                         </div>
                     </Parallax>
                     </HeroContainer>
-                    {/* <CounterContainer>
-                        <h2>Jumlah Guru dan Murid</h2>
-                        <div className="Counter__Box">
-                            <p>50</p>
-                            <p>Guru dan siswa</p>
-                        </div>
-                    </Parallax> */}
                     <AboutContainer>
                     <Parallax translateX={[0, 10]}>   
                         <h2>Siapakah <span className="underline">SIJA'26</span>?</h2>
