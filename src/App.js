@@ -10,6 +10,7 @@ import {
 
 import Home from "./pages/Home";
 import Gallery from './pages/Gallery';
+import Jobs from "./pages/Jobs";
 
 import { GlobalStyles } from "./globals";
 
@@ -22,6 +23,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/jobs" element={<Jobs />} />
           </Routes>
         </ParallaxProvider>
         </div>

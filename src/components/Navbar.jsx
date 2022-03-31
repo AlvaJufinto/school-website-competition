@@ -187,7 +187,7 @@ const Navbar = () => {
                         <div className="NavContainer__Links" >
                             <StyledLink to="/" >Home</StyledLink>
                             <StyledLink to="/gallery" >Gallery</StyledLink>
-                            <StyledLink to="/Jobs" >Jobs</StyledLink>
+                            <StyledLink to="/jobs" >Jobs</StyledLink>
                         </div>
                     </section>
                 </NavContainer>

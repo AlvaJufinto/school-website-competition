@@ -137,14 +137,14 @@ export const GallerySection = styled.div`
 
 const Gallery = () => {
     const { width, height } = useWindowDimensions();
-    const horizontalElement = useRef(null);
+    const horizontalElement = useRef();
     const { onMouseDown } = useDraggableScroll(horizontalElement);
     
     useEffect(() => {
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 0);
         AOS.init();
     }, []);
-    
+
     const champImages = [
         {
             image: 'https://drive.google.com/file/d/11ZlKum3W4YjeA2R6V7-HoClNppr0zi6f/view',
@@ -205,7 +205,7 @@ const Gallery = () => {
                 </Parallax>
                 <div className="GallerySection__photos" ref={horizontalElement} onMouseDown={onMouseDown}>
                     {champImages?.map((champ, i) => (
-                        <div className="Champ" >
+                        <div className="Champ" data-aos="fade-up" data-aos-duration="1000" >
                             <img  loading="lazy" src={`https://drive.google.com/uc?export=download&id=${champ?.image?.split("/d/")[1]?.split("/")[0]}`} alt="Champ Image" className="GalleryImg" />
                             <p>{i < 10 ? '0' : ''}{i + 1} - {champ?.message}</p>     
                         </div>
