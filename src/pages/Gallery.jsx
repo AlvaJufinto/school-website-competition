@@ -100,6 +100,7 @@ export const GallerySection = styled.div`
     
     .GallerySection__photos {
         width: 100%;
+        min-height: 500px;
         display: flex;
         flex-wrap: nowrap;
         gap: 100px;
@@ -194,7 +195,9 @@ const Gallery = () => {
             </StyledSection>
             <GallerySection>
                 <h2>Gallery Kemenangan <span className="underline">SIJA'26</span> </h2>
-                <p>Geser bang...</p>
+                <Parallax translateX={width > 1024 ? [-5, 0] : [0,0]}>
+                    <p>Geser bang...</p>
+                </Parallax>
                 <div className="GallerySection__photos" ref={horizontalElement} onMouseDown={onMouseDown}>
                     {champImages?.map((champ, i) => (
                         <div className="Champ" >
