@@ -273,7 +273,7 @@ const Home = () => {
                     </div>
                 </AboutContainer>
                 <ChampsContainer>
-                    <Parallax translateX={width > 1024 ? [10, 0] : [0, 0]}>
+                    <Parallax translateX={width > 1024 ? [0, 10] : [0, 0]}>
                         <h2>Lomba yang dimenangkan <span className="underline">SIJA’26</span></h2>
                     </Parallax>   
 
