@@ -1,8 +1,9 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import styled from "styled-components";
 import { Parallax } from "react-scroll-parallax";
 import useWindowDimensions from "./../hooks/useWindowDimensions";
 import useDraggableScroll from 'use-draggable-scroll';
+import AOS from "aos";  
 // import { KeyboardCommandKeyIcon } from '@mui/icons-material';
 
 import Navbar from "../components/Navbar";
@@ -138,8 +139,12 @@ const Gallery = () => {
     const { width, height } = useWindowDimensions();
     const horizontalElement = useRef(null);
     const { onMouseDown } = useDraggableScroll(horizontalElement);
-    const link = "";
-
+    
+    useEffect(() => {
+        window.scrollTo(0, 0)
+        AOS.init();
+    }, []);
+    
     const champImages = [
         {
             image: 'https://drive.google.com/file/d/11ZlKum3W4YjeA2R6V7-HoClNppr0zi6f/view',
@@ -174,7 +179,7 @@ const Gallery = () => {
                 <QuoteSection>
                     <div className="QuoteSection__Big">
                         <p>Gallery</p>
-                        <h1>
+                        <h1 data-aos="fade-up" data-aos-duration="1000">
                             Masih ragu untuk menjadi bagian dari kami? Fakta akan berbicara. 
                         </h1>
                     </div>
@@ -194,7 +199,7 @@ const Gallery = () => {
                 </QuoteSection>
             </StyledSection>
             <GallerySection>
-                <h2>Gallery Kemenangan <span className="underline">SIJA'26</span> </h2>
+                <h2 data-aos="fade-up" data-aos-duration="1000">Gallery Kemenangan <span className="underline">SIJA'26</span> </h2>
                 <Parallax translateX={width > 1024 ? [-5, 0] : [0,0]}>
                     <p>Geser bang...</p>
                 </Parallax>

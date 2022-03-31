@@ -222,8 +222,9 @@ const Home = () => {
     const { width, height } = useWindowDimensions();
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         AOS.init();
-      }, []);
+    }, []);
     
       return ( 
         <>
