@@ -12,7 +12,6 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        height: 200vh;
         background: black;
         overflow-x: hidden;
         
