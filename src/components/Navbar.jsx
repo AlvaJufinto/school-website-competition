@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { StyledLink } from "./styledComponents";
 import { GlobalColors, GlobalFonts, GlobalMeasurements } from "./../globals";
 
+import Logo26 from "./../assets/img/26-logo.png";
+
 export const NavWrapper = styled.div`
     width: 100%;
     position: fixed;
@@ -13,21 +15,27 @@ export const NavWrapper = styled.div`
 `
 
 export const Nav = styled.div`
-    transition:  0.7s ease-in;
     padding: 20px 0px;
     margin: auto;
     width: 90%;
     max-width: ${GlobalMeasurements.containerWidth}px;
-    height: 100px;
+    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     .Nav__Title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         transition: 1s;
         font-size: 1.5rem;
         color: ${[props => props.isOpen ? 'white' : 'black']};
-        font-family: ${GlobalFonts.secondary}
+        font-family: ${GlobalFonts.secondary};
+        
+        img {
+           height: 60px;
+        }
     }
 
     .Nav__Burger {
@@ -39,7 +47,7 @@ export const Nav = styled.div`
         width: 50px;
         
         .BurgerTop, .BurgerMid, .BurgerBottom {
-            transition: 0.5s;
+            transition: 0.75s;
             background: ${[props => props.isOpen ? 'white' : 'black']};
             height: 2px;
         }
@@ -72,7 +80,7 @@ export const Nav = styled.div`
 `
 
 export const NavContainer = styled.div`
-    transition: 2s;
+    transition: all 2s;
     clip-path: ${props => props.isOpen ? "ellipse(200vh 3000vw at 100% -15%)" : 'ellipse(130px 140px at 100% -20%)'};
     height: 100vh;
     width: 100vw;
@@ -172,6 +180,7 @@ const Navbar = () => {
             <NavWrapper>
                 <Nav isOpen={isOpen} isTop={scrollState === "top" ? true : false } >
                     <div className="Nav__Title">
+                        <img src={Logo26} alt="" />
                         <h3>SIJA'26</h3>
                     </div>
                     <div className="Nav__Burger" isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} >

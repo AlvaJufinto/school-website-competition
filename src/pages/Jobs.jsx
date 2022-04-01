@@ -33,7 +33,6 @@ const QuoteSection = styled.div`
     @media (max-width: 1024px) {
         .QuoteSection__Big {
             padding: 0;
-
             h1 {
                 font-size: 3rem;
             }
@@ -49,6 +48,7 @@ const SearchSection = styled.div`
         margin: 100px 0 50px 0;
         font-family: ${GlobalFonts.secondary};
         font-size: 2rem;
+        font-weight: 600;
     }
     .SearchContainer {
         position: relative;
@@ -60,11 +60,11 @@ const SearchSection = styled.div`
             height: 60px;
             font-size: 55px;
             display: inline-block;
-            font-family: "Lato";
-            font-weight: 100;
+            font-family: ${GlobalFonts.primary};
+            /* font-weight: 100; */
             border: none;
             outline: none;
-            color: #ffffff;
+            color: black;
             padding: 3px;
             padding-right: 60px;
             width: 0px;
@@ -82,7 +82,7 @@ const SearchSection = styled.div`
         }
     
         input[type="text"]:focus {
-            width: 700px;
+            width: 800px;
             z-index: 1;
             border-bottom: 1px solid #BBB;
             cursor: text;
@@ -92,9 +92,7 @@ const SearchSection = styled.div`
             height: 67px;
             width: 67px;
             display: inline-block;
-            color:red;
-            float: right;
-            background: url(data:image/png;base64,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);
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRFU1NT9fX1lJSUXl5e1dXVfn5+c3Nz6urqv7+/tLS0iYmJqampn5+fysrK39/faWlp////Vi4ZywAAABF0Uk5T/////////////////////wAlrZliAAABLklEQVR42rSWWRbDIAhFHeOUtN3/ags1zaA4cHrKZ8JFRHwoXkwTvwGP1Qo0bYObAPwiLmbNAHBWFBZlD9j0JxflDViIObNHG/Do8PRHTJk0TezAhv7qloK0JJEBh+F8+U/hopIELOWfiZUCDOZD1RADOQKA75oq4cvVkcT+OdHnqqpQCITWAjnWVgGQUWz12lJuGwGoaWgBKzRVBcCypgUkOAoWgBX/L0CmxN40u6xwcIJ1cOzWYDffp3axsQOyvdkXiH9FKRFwPRHYZUaXMgPLeiW7QhbDRciyLXJaKheCuLbiVoqx1DVRyH26yb0hsuoOFEPsoz+BVE0MRlZNjGZcRQyHYkmMp2hBTIzdkzCTc/pLqOnBrk7/yZdAOq/q5NPBH1f7x7fGP4C3AAMAQrhzX9zhcGsAAAAASUVORK5CYII=);
             background-size: cover;                      
             background-repeat: no-repeat;
             background-position: center center;   
@@ -103,7 +101,7 @@ const SearchSection = styled.div`
             position: absolute;
             top: 0;
             right: 0;
-            z-index: 2;
+            z-index: 1;
             cursor: pointer;
             opacity: 0.4;
             cursor: pointer;
@@ -116,12 +114,16 @@ const SearchSection = styled.div`
     }
 
 
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
         input[type="text"]:focus {
             width: ${props => props.windowWidth - 30}px;
             /* margin: 0 20px 0 0; */
         }
     }
+`
+
+const JobCardsContainer = styled.div`
+    
 `
 
 const Jobs = () => {
@@ -139,30 +141,35 @@ const Jobs = () => {
         {
             name: "Frontend Developer",
             place: "Jakarta",
+            company: "PT Mencari Cinta Sejati",
             description: "Frontend developer yang berpengalaman selama 69 tahun",
             link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         },
         {
             name: "Backend Developer",
             place: "Jakarta",
+            company: "PT Mencari Cinta Sejati",
             description: "Sseorang Backend Developer yang berpengalaman selama 69 tahun di perusahaan Ogah Rugi",
             link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         },
         {
             name: "Psatir Handal",
             place: "Merauke",
+            company: "PsaTir",
             description: "Psatir handal sangat dibutuhkan untuk menstranslate bahasa satir dengan bahasa manusia",
             link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         },
         {
             name: "UI/UX Designer",
             place: "Bogor",
+            company: "PT Bogay",
             description: "Ahli UI Design yang telah memiliki pengalaman selama 5 tahun",
             link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         },
         {
             name: "Network Designer",
             place: "Padang",
+            company: "PT kang Jaringan",
             description: "Kamg jaringan yang jago merancang SOHO dengan pengalaman magang 1 tahun di PT mencari cinta sejati",
             link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         }
@@ -181,11 +188,11 @@ const Jobs = () => {
                     </div>
                 </QuoteSection>
                 <SearchSection windowWidth={width}>
-                    <p>Cari jasa yang anda butuhkan dengan <span className="underline">klik</span> icon search di bawah!</p>
+                    <p>Cari jasa yang Anda butuhkan dengan <span className="underline">klik</span> icon search di bawah!</p>
                     <div className="SearchContainer">
-                        <div action="" autocomplete="on">
-                            <input id="search" name="search" type="text" value={value} onChange={e => setValue(e.target.value)}   placeholder="What are you looking for ?" />
-                            <input id="search_submit" value="Rechercher" type="submit" />
+                        <div>
+                            <input id="search_submit" autocomplete="off" value="Rechercher" type="submit" />
+                            <input autocomplete="off" id="search" name="search" type="text" value={value} onChange={e => setValue(e.target.value)} placeholder="What are you looking for ?" />
                         </div>
                     </div>
                 </SearchSection>
@@ -194,21 +201,34 @@ const Jobs = () => {
                     if (!value) return true;
                     if (item.name.toLowerCase().includes(value.toLowerCase())) {
                         return true
-                    }
-                    })
+                    }})
                     .map(item => {
                         filteredJobs?.push(item);
                     })
                 }
                 
-                {/* <JobCardsContainer>
+                <JobCardsContainer>
                     {filteredJobs?.map(jobs => (
                         <div className="JobsCardsContainer__card" >
-                            <h2>{jobs?.name}</h2>
-                            <p>{jobs?.description}</p>
+                            <div className="Top">
+                                <div className="circle"></div>
+                                <div className="circle"></div>
+                            </div>
+                            <div className="informationContainer">
+                                <div className="jobTitle">
+                                    <h1>{jobs?.name}</h1>
+                                </div>
+                                <p>{jobs?.description}</p>
+                                <p></p>
+                                <a rel="stylesheet" href={jobs?.link}>More</a>
+                            </div>
+                            <div className="Bottom">
+                                <div className="circle"></div>
+                                <div className="circle"></div>
+                            </div>
                         </div>
                     ))}
-                </JobCardsContainer> */}
+                </JobCardsContainer>
                 <Footer />
             </StyledSection>
         </>

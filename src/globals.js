@@ -16,7 +16,7 @@ export const GlobalStyles = createGlobalStyle`
         height: 100vh;
         width: 100vw;
         background: url(${sijaLogo});
-        background-size: 800px 500px;                      
+        background-size: 600px 400px;                      
         background-repeat: no-repeat;
         background-position: center center;   
         background-attachment: fixed;
@@ -59,6 +59,6 @@ export const GlobalMeasurements = {
 }
 
 export const GlobalFonts = {
-    primary: 'PT Serif',
+    primary: 'Playfair Display',
     secondary: 'Raleway',
 }

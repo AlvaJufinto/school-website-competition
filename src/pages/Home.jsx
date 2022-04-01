@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import styled from "styled-components";
 import { Parallax } from "react-scroll-parallax";
 import useWindowDimensions from "./../hooks/useWindowDimensions";
-// import { KeyboardCommandKeyIcon } from '@mui/icons-material';
+// import { KeyboardCommandKeyIcon, Person } from '@mui/icons-material';
 import AOS from "aos";  
 import "aos/dist/aos.css";
 
@@ -96,6 +96,10 @@ export const AboutContainer = styled.div`
         .Counter {
             text-align: center; 
 
+            i {
+                font-size: 3rem;
+            }
+
             h2 {
                 font-size: 3.5rem;
             }
@@ -103,6 +107,7 @@ export const AboutContainer = styled.div`
             p {
                 font-size: 2rem;
                 font-family: ${GlobalFonts.secondary};
+                margin: 0 0 20px 0;
             }
         }
     }
@@ -155,6 +160,7 @@ export const ChampsContainer = styled.div`
                 justify-content: center;
                 align-items: center;
                 gap: 20px;
+                font-family: ${GlobalFonts.secondary};
 
                 img {
                     max-width: 100%;
@@ -172,12 +178,18 @@ export const ChampsContainer = styled.div`
                     h3 {
                         font-size: 3rem;
                         margin: 0 0 20px 0;
+                        font-weight: 6800;
+                        
                     }
     
                     p {
                         font-size: 1.75rem;
-                        font-family: ${GlobalFonts.secondary};
-                        /* font-weight: 200; */
+                        margin: 0 0 10px 0;
+                    }
+
+                    i {
+                        margin: 0 20px 0 0;
+                        font-size: 1.5rem;
                     }
                 }
             }
@@ -203,7 +215,6 @@ export const ChampsContainer = styled.div`
                 .subject {
                     display: block;
                     width: 75%;   
-                    text-align: center;
                 }
             }
         }
@@ -221,10 +232,10 @@ export const CounterContainer = styled.div`
 const Home = () => {
     const { width, height } = useWindowDimensions();
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-        AOS.init();
-    }, []);
+    // useEffect(() => {
+    //     window.scrollTo(0, 0)
+    //     AOS.init();
+    // }, []);
     
       return ( 
         <>
@@ -232,7 +243,7 @@ const Home = () => {
                 <Navbar />
                 <HeroContainer>
                     <Parallax translateX={width > 1024 ? [10, 0] : [0,0]}>   
-                        <h2>Selamat Datang di SIJA <span className="underline">SMKN 26 Jakarta</span></h2>
+                        <h2>Selamat Datang di SIJA <span style={{ color: GlobalColors.blue, fontWeight: 400 }}>SMKN 26 Jakarta</span></h2>
                     </Parallax>
                     {/* <p className="overlayedText" ></p> */}
                     <div className="HeroContainer__ImgHolder">
@@ -269,16 +280,18 @@ const Home = () => {
                         <h2 className="statistic" >Statistik  <span className="underline">SIJA’26</span></h2>
                     </Parallax>
                     <div className="AboutContainer__CounterHolder">
-
                         <div className="Counter">
+                            <i class="fa-solid fa-chalkboard-user"></i>                            
                             <h2>3</h2>
                             <p>Pendidik</p>
                         </div>
                         <div className="Counter">
+                            <i class="fa-solid fa-graduation-cap"></i>
                             <h2>200</h2>
                             <p>Peserta Didik</p>
                         </div>
                         <div className="Counter">
+                            <i class="fa-solid fa-book-open"></i>
                             <h2>9</h2>
                             <p>Mata Pelajaran</p>
                         </div>
@@ -295,27 +308,27 @@ const Home = () => {
                                 <img src="https://lh3.googleusercontent.com/fife/AAWUweXZgU_n_j1c2fw8r9ujCNBnJrkZRPiZO8AncKKhxtH30UGGTMf0-ZilQWPUdmfXhSZA1SUi-QR5xMXH2TKsy0pNaToAsxCBt_wlM6IjKOGxErDjFfRctuDU0a0MyvbKJITBN_CLFJ0IGkUyNry-RhxwiuNkaxD793N_ZFkc6JsqYF-rxShGCfyd6sXU2PXcQDKFTUAKYoy31sSlCOBhei9lD6tKjSPe18vaHjuaOByHR2eRV_9SphMnhzY1wzhM3LKwT-WeApDHGp9MjY11GDz9BsRm-NDbnDehOuSkav-kCrwQpu85WKh1nQ9mhpuzk_YGX0VpsQItif_S5TxlChdAoiYOWyQ1SGuDHa8fOpqCN58VEJH6fHxJnEvo0px2OmR5JE7IwwSXRtVjtLtqT7IHXkk4M4HwGTVjkC7Zb82W1LvQns400gLEEAmnBNkyzavVGSw51t6gjihS3ZMZVEGjWRuSkuC7vCpxiMp8-LA0yQv36kI6GeeScBg23d-WCTt2B5H3m7IBNf-1CxXxyBk3TtumDbsm-fEUvo3AVG3kwh6Gwj13CHOxDCqLBIQJ8PqbQgEPsNvV8c10zMS-V1KHrXEkGs1Howd6amCfYWTCYU0JN2g5il8i1mqZakuFsFzehejqecb76X50ZCfWjN7J3QPs5f6_OLGppQaHu0WgETeJIIB9k5aYUtoK-i7SmMAIlSddBDzVryNpqKYbpMNS5XPiNDTEbcxvLDf-3v92Rka-UgLoK0YFMiWwPkoqkZciUX15GNsK2VbOZjN88k2r1CpmWuI2MiLgUR4MlMt-pv2YgyAxTDv11zusd1xW4zqu6UdglooItiuP4QTuBmTWfwufGgM9ksXoG-DVYxLKmKSo1_EahfE467Ag_CM=w1920-h969" alt="" />
                                 <div className="description">
                                     <h3>Psatir Handal</h3>
-                                    <p>Lomba KKSI</p>
-                                    <p>Juara 69</p>
-                                    <p>Tahun 2069</p>
+                                    <p><i class="fa-regular fa-flag"></i>Lomba KKSI</p>
+                                    <p><i class="fa-solid fa-award"></i>Juara 69</p>
+                                    <p><i class="fa-regular fa-calendar"></i>Tahun 2069</p>
                                 </div>
                             </div>
                             <div className="subject" data-aos="fade-right" data-aos-duration="1000">
                                 <img src="https://lh3.googleusercontent.com/fife/AAWUweV8zsRF8CYZqynqPiGwn233Sf4bLbU1kdzGgxrjDB0eWVeTF5Zghec3bw4beS9nwtbSCVxzvDabf1kcjEM8nXWuEiB3M6eVAsqTKVW-VjUGOEb34wglFz-t5EZ4wn3-L11hPzo9DtIBjK6m6gEq0FtCD2Ix3Lao8tDB2ONqN734IeK78139HhQMGrIYeyE_hkggcPdVtLquVL8wVqAdFMcokXJWLrOYWsRYRI5LvyJkemoaP4yr4hlgIdsC1yIHSKskJKrbEAYm5vWEDYL7qtRXynY6Az7cpWYxdIRWlqCSEnk4WNGNpDcXo7VDSrdVBi-PpIiFOIdl4Z-gkMPjy5rq2hrM-egn09MX6QoAKeslgB8HuZS9OVV0v8R8-OgY-1uaI2kHGOAUE-TNaU-JwEW9oPpmVnQXRzCZoDEXH3czEKDJ_uBKojliGBKuheX8nAAbdn_Ghm_7JWYKHvCKuKWZ_WD4rytqEyhHxxdzcvYR7oAoY_hB55L9RJqGYRY_LyI1Dt7Q_RFfdmFR19DMG7ddStbyFP1nBMt9TKpPYcMGF64J1HxtxbH84kwI4MKszBzKkCbSVyZPLHRYSOsJa8PWX5d0GAcB-7XHZbEDCuEIjBzObPW-iSCU9e-gP6JSbVWFjYWa65XG4SwdY8Nm9poNSk3zO0DtWD9Gil39OglHs4AcRm_R86a9lS4_5OPhSdWRLDr6qDSeiTY_uytI4kBX04_aMmHcpiWRGgjxQtmhzPysfe498n4_5_vDMPYi4up6ilj6VVxJjIewAGwfH_b8xEdmtZxvS42-BkQLGVNby4qKhGdDA0riSjhq-3-gZWRjtLfWNhXm9A4wrujCTmdENuVPC5XhBVnkOSvApQqK05Pd7sM40InSYIo2W5c=w1059-h969" alt="" />
                                 <div className="description">
                                     <h3>Psatir Handal</h3>
-                                    <p>Lomba KKSI</p>
-                                    <p>Juara 69</p>
-                                    <p>Tahun 2069</p>
+                                    <p><i class="fa-regular fa-flag"></i>Lomba KKSI</p>
+                                    <p><i class="fa-solid fa-award"></i>Juara 69</p>
+                                    <p><i class="fa-regular fa-calendar"></i>Tahun 2069</p>
                                 </div>
                             </div>
                             <div className="subject" data-aos="fade-right" data-aos-duration="1000">
                                 <img src="https://merriam-webster.com/assets/ld/word_of_the_day/images/4671/large.jpg" alt="" />
                                 <div className="description">
                                     <h3>Psatir Handal</h3>
-                                    <p>Lomba KKSI</p>
-                                    <p>Juara 69</p>
-                                    <p>Tahun 2069</p>
+                                    <p><i class="fa-regular fa-flag"></i>Lomba KKSI</p>
+                                    <p><i class="fa-solid fa-award"></i>Juara 69</p>
+                                    <p><i class="fa-regular fa-calendar"></i>Tahun 2069</p>
                                 </div>
                             </div>
                         </div>

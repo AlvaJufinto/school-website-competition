@@ -131,7 +131,6 @@ export const GallerySection = styled.div`
                 color: black;
             }
         }
-
     }
 `
 
