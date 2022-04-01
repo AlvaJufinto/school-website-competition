@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import sijaLogo from "./assets/img/sija-opacity-down.png";
 
 export const GlobalStyles = createGlobalStyle`
     * {
@@ -12,12 +13,17 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        background: black;
+        height: 100vh;
+        width: 100vw;
+        background: url(${sijaLogo});
+        background-size: 800px 500px;                      
+        background-repeat: no-repeat;
+        background-position: center center;   
+        background-attachment: fixed;
         overflow-x: hidden;
         
-        &:before {
+        /* &:before {
             z-index: -1;
-            /* text-orientation: mixed; */
             content: "SMKN 26 JAKARTA";
             text-align: center;
             position: fixed;
@@ -28,8 +34,7 @@ export const GlobalStyles = createGlobalStyle`
             font-weight: bold;
             color: transparent;
             -webkit-text-stroke: 1px #555;
-        
-        }
+        } */
     }
 
     .underline {

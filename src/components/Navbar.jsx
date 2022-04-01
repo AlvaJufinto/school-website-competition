@@ -9,7 +9,7 @@ export const NavWrapper = styled.div`
     z-index: 2;
     left: 0;
     right: 0;
-    background: ${props => props.isOpen ? GlobalColors.black : 'black'};
+    background: white;
 `
 
 export const Nav = styled.div`
@@ -24,7 +24,10 @@ export const Nav = styled.div`
     align-items: center;
 
     .Nav__Title {
-        font-size: 2rem;
+        transition: 1s;
+        font-size: 1.5rem;
+        color: ${[props => props.isOpen ? 'white' : 'black']};
+        font-family: ${GlobalFonts.secondary}
     }
 
     .Nav__Burger {
@@ -37,7 +40,7 @@ export const Nav = styled.div`
         
         .BurgerTop, .BurgerMid, .BurgerBottom {
             transition: 0.5s;
-            background: white;
+            background: ${[props => props.isOpen ? 'white' : 'black']};
             height: 2px;
         }
 

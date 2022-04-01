@@ -49,7 +49,7 @@ export const HeroContainer = styled.div`
         font-size: 1.5rem;
         border-bottom: 5px solid ${GlobalColors.blue};
         font-family: ${GlobalFonts.secondary};
-        font-weight: 200;
+        /* font-weight: 200; */
     }
 
     @media (max-width: 1024px) {
@@ -77,7 +77,7 @@ export const AboutContainer = styled.div`
         font-size: 1.5rem;
         border-bottom: 5px solid ${GlobalColors.blue};
         font-family: ${GlobalFonts.secondary};
-        font-weight: 200;
+        /* font-weight: 200; */
 
     }
 
@@ -90,7 +90,7 @@ export const AboutContainer = styled.div`
         width: 60%;
         margin: auto;
         display: flex;
-        color: white;
+        color: black;
         justify-content: space-between;
 
         .Counter {
@@ -177,7 +177,7 @@ export const ChampsContainer = styled.div`
                     p {
                         font-size: 1.75rem;
                         font-family: ${GlobalFonts.secondary};
-                        font-weight: 100;
+                        /* font-weight: 200; */
                     }
                 }
             }

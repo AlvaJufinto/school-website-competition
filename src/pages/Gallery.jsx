@@ -32,7 +32,7 @@ export const QuoteSection = styled.div`
 
     .QuoteSection__Description {
         font-family: ${GlobalFonts.secondary};
-        font-weight: 200;
+        /* font-weight: 200; */
         display: flex;
         gap: 50px;
         margin: 50px 0 0 0;
@@ -81,7 +81,7 @@ export const QuoteSection = styled.div`
 `
 
 export const GallerySection = styled.div`
-    color: white;
+    color: black;
     margin: 150px 0px;
 
     h2 {
@@ -128,7 +128,7 @@ export const GallerySection = styled.div`
             p {
                 font-size: 1.5rem;
                 font-family: ${GlobalFonts.secondary};
-                color: white;
+                color: black;
             }
         }
 

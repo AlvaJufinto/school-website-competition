@@ -22,5 +22,5 @@ export const StyledSection = styled.div`
     max-width: ${GlobalMeasurements.containerWidth}px;
     background: ${props => props.backgroundColor ? props.backgroundColor : GlobalColors.lightBack};
     font-family: ${props => props.fontFamily ? props.fontFamily : GlobalFonts.primary};
-    color: ${props => props.color ? props.color : GlobalColors.white};
+    color: ${props => props.color ? props.color : 'black'};
 `
