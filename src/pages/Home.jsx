@@ -138,7 +138,7 @@ export const ChampsContainer = styled.div`
 
         .ChampsContainer__abstract {
             background-color: ${GlobalColors.grey};
-            width: 2%;
+            width: 1.5%;
             font-size: 2rem;
             line-height: 70px;
             letter-spacing: 10px;
@@ -153,19 +153,39 @@ export const ChampsContainer = styled.div`
             display: flex;
             flex-direction: column;
             gap: 50px;
-
+            
             .subject {
-                padding: 20px;
+                background-color: white;
                 width: 100%;
+                min-height: 300px;
+                max-height: 300px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 gap: 20px;
                 font-family: ${GlobalFonts.secondary};
+                box-shadow: 0px 1px 45px -1px rgba(153,153,153,0.2);
+
+                .CircleContainer {
+                    padding: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    /* background-color: #030203; */
+                    height: 100%;
+
+                    .Circle {
+                        height: 10px;
+                        width: 10px;
+                        border-radius: 50%;
+                        border: 1px solid ${GlobalColors.blue};
+                    }
+                }
 
                 img {
-                    max-width: 100%;
+                    /* max-width: 500px; */
                     width: 500px;
+                    height: 100%;
                     object-fit: cover;
                     object-position: center;
                     filter: grayscale(20%);
@@ -173,24 +193,23 @@ export const ChampsContainer = styled.div`
                 }
                 
                 .description {
-                    /* background-color: ${GlobalColors.grey}; */
                     padding: 20px;
 
                     h3 {
-                        font-size: 3rem;
+                        font-size: 2.5rem;
                         margin: 0 0 20px 0;
                         font-weight: 6800;
-                        
+                        font-family: ${GlobalFonts.primary};
                     }
     
                     p {
-                        font-size: 1.75rem;
+                        font-size: 1.25rem;
                         margin: 0 0 10px 0;
                     }
 
                     i {
                         margin: 0 20px 0 0;
-                        font-size: 1.5rem;
+                        font-size: 1rem;
                     }
                 }
             }
@@ -209,13 +228,22 @@ export const ChampsContainer = styled.div`
                 display: none;
             }
 
+            
             .subjects {
                 align-items: center;
                 width: 100%;
-
+                
                 .subject {
-                    display: block;
+                    flex-direction: column;
                     width: 75%;   
+
+                    img {
+                        width: 100%;
+                    }
+                    
+                    .CircleContainer {
+                        display: none;    
+                    }
                 }
             }
         }
@@ -234,7 +262,7 @@ const Home = () => {
     const { width, height } = useWindowDimensions();
 
     useEffect(() => {
-        window.scrollTo(0, 0)
+        // window.scrollTo(0, 0)
         AOS.init({ once: true });
     }, []);
     
@@ -305,13 +333,17 @@ const Home = () => {
 
                     <div className="ChampsContainer__sections">
                         <div className="subjects">
-                            <div className="subject" data-aos="fade-right" data-aos-duration="1000" >
+                            <div className="subject" data-aos="fade-right" data-aos-duration="1000">
                                 <img src="https://lh3.googleusercontent.com/fife/AAWUweXZgU_n_j1c2fw8r9ujCNBnJrkZRPiZO8AncKKhxtH30UGGTMf0-ZilQWPUdmfXhSZA1SUi-QR5xMXH2TKsy0pNaToAsxCBt_wlM6IjKOGxErDjFfRctuDU0a0MyvbKJITBN_CLFJ0IGkUyNry-RhxwiuNkaxD793N_ZFkc6JsqYF-rxShGCfyd6sXU2PXcQDKFTUAKYoy31sSlCOBhei9lD6tKjSPe18vaHjuaOByHR2eRV_9SphMnhzY1wzhM3LKwT-WeApDHGp9MjY11GDz9BsRm-NDbnDehOuSkav-kCrwQpu85WKh1nQ9mhpuzk_YGX0VpsQItif_S5TxlChdAoiYOWyQ1SGuDHa8fOpqCN58VEJH6fHxJnEvo0px2OmR5JE7IwwSXRtVjtLtqT7IHXkk4M4HwGTVjkC7Zb82W1LvQns400gLEEAmnBNkyzavVGSw51t6gjihS3ZMZVEGjWRuSkuC7vCpxiMp8-LA0yQv36kI6GeeScBg23d-WCTt2B5H3m7IBNf-1CxXxyBk3TtumDbsm-fEUvo3AVG3kwh6Gwj13CHOxDCqLBIQJ8PqbQgEPsNvV8c10zMS-V1KHrXEkGs1Howd6amCfYWTCYU0JN2g5il8i1mqZakuFsFzehejqecb76X50ZCfWjN7J3QPs5f6_OLGppQaHu0WgETeJIIB9k5aYUtoK-i7SmMAIlSddBDzVryNpqKYbpMNS5XPiNDTEbcxvLDf-3v92Rka-UgLoK0YFMiWwPkoqkZciUX15GNsK2VbOZjN88k2r1CpmWuI2MiLgUR4MlMt-pv2YgyAxTDv11zusd1xW4zqu6UdglooItiuP4QTuBmTWfwufGgM9ksXoG-DVYxLKmKSo1_EahfE467Ag_CM=w1920-h969" alt="" />
                                 <div className="description">
                                     <h3>Psatir Handal</h3>
                                     <p><i class="fa-regular fa-flag"></i>Lomba KKSI</p>
                                     <p><i class="fa-solid fa-award"></i>Juara 69</p>
                                     <p><i class="fa-regular fa-calendar"></i>Tahun 2069</p>
+                                </div>
+                                <div className="CircleContainer">
+                                    <div className="Circle"></div>
+                                    <div className="Circle"></div>
                                 </div>
                             </div>
                             <div className="subject" data-aos="fade-right" data-aos-duration="1000">
@@ -322,6 +354,10 @@ const Home = () => {
                                     <p><i class="fa-solid fa-award"></i>Juara 69</p>
                                     <p><i class="fa-regular fa-calendar"></i>Tahun 2069</p>
                                 </div>
+                                <div className="CircleContainer">
+                                    <div className="Circle"></div>
+                                    <div className="Circle"></div>
+                                </div>
                             </div>
                             <div className="subject" data-aos="fade-right" data-aos-duration="1000">
                                 <img src="https://merriam-webster.com/assets/ld/word_of_the_day/images/4671/large.jpg" alt="" />
@@ -330,6 +366,10 @@ const Home = () => {
                                     <p><i class="fa-regular fa-flag"></i>Lomba KKSI</p>
                                     <p><i class="fa-solid fa-award"></i>Juara 69</p>
                                     <p><i class="fa-regular fa-calendar"></i>Tahun 2069</p>
+                                </div>
+                                <div className="CircleContainer">
+                                    <div className="Circle"></div>
+                                    <div className="Circle"></div>
                                 </div>
                             </div>
                         </div>

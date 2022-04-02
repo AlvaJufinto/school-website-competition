@@ -142,7 +142,7 @@ const JobCardsContainer = styled.div`
         justify-content: space-between;
         width: ${props => (props?.jobsContainer / 3) - 18}px;
         background-color: white;
-        box-shadow: 0px 1px 45px -1px #cfcfcfce;
+        box-shadow: 0px 1px 45px -1px rgba(207, 207, 207, 0.5);
         padding: 20px;
 
         .informationContainer {
@@ -205,7 +205,7 @@ const Jobs = () => {
     let filteredJobs = [];
 
     useEffect(() => {
-        // window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
         AOS.init({ once: true });
     }, [width]);
 
