@@ -195,7 +195,7 @@ const JobCardsContainer = styled.div`
             width: 100%;
         }
     }
-`
+`   
 
 const Jobs = () => {
     const [value, setValue] = useState('')

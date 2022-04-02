@@ -7,6 +7,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import Navbar from "../components/Navbar";
+import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import { GlobalColors, GlobalFonts } from "../globals";
 import { StyledSection } from "../components/styledComponents";
@@ -202,7 +203,7 @@ export const ChampsContainer = styled.div`
                         font-weight: 6800;
                         font-family: ${GlobalFonts.primary};
                     }
-    
+
                     p {
                         font-size: 1.2rem;
                         margin: 0 0 10px 0;
@@ -216,6 +217,13 @@ export const ChampsContainer = styled.div`
             }
         }
     }
+    
+    @media (max-width: 1400px) {
+        .ChampsContainer__abstract{ 
+            display: none;
+        }
+        
+    }
 
     @media (max-width: 1024px) {
         h2 {
@@ -223,23 +231,29 @@ export const ChampsContainer = styled.div`
         }
 
         .ChampsContainer__sections {
-            display: block;
-
-            .ChampsContainer__abstract{ 
-                display: none;
-            }
-
-            
             .subjects {
                 align-items: center;
+                flex-direction: column;
                 width: 100%;
                 
                 .subject {
                     flex-direction: column;
-                    width: 75%;   
-
+                    gap: 0px;   
+                    height: 500px;
+                    min-height: 550px;
+                    margin: auto;
+                    
                     img {
                         width: 100%;
+                        max-height: 300px;
+                    }
+                    
+                    .description {
+                        padding: 20px;
+                    
+                        h3 {
+                            font-size: 1.25rem;
+                        }
                     }
                     
                     .CircleContainer {
@@ -258,10 +272,6 @@ export const CounterContainer = styled.div`
         font-size: 3rem;
     }
 `   
-
-const TestimonialContainer = styled.div`
-        
-`
 
 const Home = () => {
     const { width, height } = useWindowDimensions();
@@ -383,6 +393,7 @@ const Home = () => {
                         </div>
                     </div>
                 </ChampsContainer>
+                <Contact /> 
                 <Footer />
             </StyledSection>
         </>

@@ -30,6 +30,7 @@ export const Nav = styled.div`
         justify-content: center;
         transition: 1s;
         font-size: 1.5rem;
+        font-weight: 100;
         color: ${[props => props.isOpen ? 'white' : 'black']};
         font-family: ${GlobalFonts.secondary};
         
@@ -56,7 +57,7 @@ export const Nav = styled.div`
             width: 100%;
             
             &.active {
-                transform: rotate(-30deg) translateY(13px);
+                transform: rotate(45deg) translate(5px, 5px);
             }
         }
     
@@ -73,7 +74,7 @@ export const Nav = styled.div`
 
             &.active {
                 width: 100%;
-                transform: rotate(30deg) translateY(-20px);
+                transform:  rotate(-45deg) translate(7px, -6px);;
             }
         }    
     }
@@ -133,7 +134,7 @@ export const NavContainer = styled.div`
             transition: all 0.5s ease;
 
             span {
-                font-size: 1.5rem;
+                font-size: 1rem;
                 left: -20%;
                 top: 0;
                 position: absolute;
@@ -153,6 +154,7 @@ export const NavContainer = styled.div`
         .NavContainer__Links {
             width: 100%;
             align-items: center;
+            font-size: 3rem;
         }
     }
 `
@@ -189,7 +191,7 @@ const Navbar = () => {
                 <Nav isOpen={isOpen} isTop={scrollState === "top" ? true : false } >
                     <div className="Nav__Title">
                         <img src={Logo26} alt="" />
-                        <h3>SIJA'26</h3>
+                        <h4>SIJA'26</h4>
                     </div>
                     <div className="Nav__Burger" isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} >
                         <div className={`BurgerTop ${isOpen ? 'active' : ""}`}></div>
