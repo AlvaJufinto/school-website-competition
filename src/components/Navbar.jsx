@@ -81,7 +81,7 @@ export const Nav = styled.div`
 
 export const NavContainer = styled.div`
     transition: all 2s;
-    clip-path: ${props => props.isOpen ? "ellipse(200vh 3000vw at 100% -15%)" : 'ellipse(130px 140px at 100% -20%)'};
+    clip-path: ${props => props.isOpen ? "ellipse(200vh 3000vw at 100% -15%)" : 'ellipse(130px 10px at 100% -20%)'};
     height: 100vh;
     width: 100vw;
     /* padding: 0 5%; */

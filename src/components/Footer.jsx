@@ -69,7 +69,7 @@ const Footer = () => {
                 </div>
                 <div className="FooterContainer__Quote">
                     <p>SIJA</p>
-                    <p><span className="underline">Terbaik</span></p>
+                    <p><span style={{ color: GlobalColors.blue, fontWeight: 500 }}>Terbaik</span></p>
                     <p>Se-Jakarta</p>
                 </div>
             </div>

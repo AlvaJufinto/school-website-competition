@@ -141,7 +141,7 @@ const Gallery = () => {
     
     useEffect(() => {
         window.scrollTo(0, 0);
-        AOS.init();
+        AOS.init({ once: true });
     }, []);
 
     const champImages = [

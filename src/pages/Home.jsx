@@ -88,7 +88,7 @@ export const AboutContainer = styled.div`
 
     .AboutContainer__CounterHolder {
         width: 60%;
-        margin: auto;
+        margin: 100px auto;
         display: flex;
         color: black;
         justify-content: space-between;
@@ -101,7 +101,8 @@ export const AboutContainer = styled.div`
             }
 
             h2 {
-                font-size: 3.5rem;
+                margin: 20px 0px;
+                font-size: 3rem;
             }
 
             p {
@@ -234,7 +235,7 @@ const Home = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        AOS.init();
+        AOS.init({ once: true });
     }, []);
     
       return ( 
@@ -283,17 +284,17 @@ const Home = () => {
                         <div className="Counter">
                             <i class="fa-solid fa-chalkboard-user"></i>                            
                             <h2>3</h2>
-                            <p>Pendidik</p>
+                            <p style={{ color: GlobalColors.blue }}>Pendidik</p>
                         </div>
                         <div className="Counter">
                             <i class="fa-solid fa-graduation-cap"></i>
                             <h2>200</h2>
-                            <p>Peserta Didik</p>
+                            <p style={{ color: GlobalColors.blue }}>Peserta Didik</p>
                         </div>
                         <div className="Counter">
                             <i class="fa-solid fa-book-open"></i>
                             <h2>9</h2>
-                            <p>Mata Pelajaran</p>
+                            <p style={{ color: GlobalColors.blue }}>Mata Pelajaran</p>
                         </div>
                     </div>
                 </AboutContainer>
