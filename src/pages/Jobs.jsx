@@ -134,7 +134,6 @@ const Jobs = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
         AOS.init();
-        console.log(width)
     }, [width]);
 
     const jobs = [
@@ -188,7 +187,7 @@ const Jobs = () => {
                     </div>
                 </QuoteSection>
                 <SearchSection windowWidth={width}>
-                    <p>Cari jasa yang Anda butuhkan dengan <span className="underline">klik</span> icon search di bawah!</p>
+                    <p>Cari jasa yang Anda butuhkan dengan <span style={{ color: GlobalColors.blue, fontWeight: 800 }}>klik</span> icon search di bawah!</p>
                     <div className="SearchContainer">
                         <div>
                             <input id="search_submit" autocomplete="off" value="Rechercher" type="submit" />

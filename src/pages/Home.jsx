@@ -232,10 +232,10 @@ export const CounterContainer = styled.div`
 const Home = () => {
     const { width, height } = useWindowDimensions();
 
-    // useEffect(() => {
-    //     window.scrollTo(0, 0)
-    //     AOS.init();
-    // }, []);
+    useEffect(() => {
+        window.scrollTo(0, 0)
+        AOS.init();
+    }, []);
     
       return ( 
         <>
