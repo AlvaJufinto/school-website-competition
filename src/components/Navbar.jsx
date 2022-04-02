@@ -122,18 +122,26 @@ export const NavContainer = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: flex-end;
+        gap: 50px;
         font-size: 5rem;
-        line-height: 1,5;
         letter-spacing: 10px;
-        width: 50%;
         height: 100%;
+        font-family: ${GlobalFonts.secondary};
         
-        ${StyledLink}:hover {
+        ${StyledLink} {
+            position: relative;
             transition: all 0.5s ease;
-            text-decoration: underline;
-            text-decoration-style: "solid";
-            text-decoration-color: ${GlobalColors.blue};
-            text-decoration-thickness: 10px;
+
+            span {
+                font-size: 1.5rem;
+                left: -20%;
+                top: 0;
+                position: absolute;
+            }
+
+            &:hover {
+                opacity: 0.5;
+            }
         }
     }
 
@@ -196,10 +204,10 @@ const Navbar = () => {
                             <p>26</p>
                             <p>JAKARTA</p>
                         </div>
-                        <div className="NavContainer__Links" >
-                            <StyledLink to="/" >Home</StyledLink>
-                            <StyledLink to="/gallery" >Gallery</StyledLink>
-                            <StyledLink to="/jobs" >Jobs</StyledLink>
+                        <div className="NavContainer__Links">
+                            <StyledLink to="/"><span>01</span>Home</StyledLink>
+                            <StyledLink to="/gallery"><span>02</span>Gallery</StyledLink>
+                            <StyledLink to="/jobs"><span>03</span>Jobs</StyledLink>
                         </div>
                     </section>
                 </NavContainer>

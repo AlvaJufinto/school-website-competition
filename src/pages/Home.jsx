@@ -156,7 +156,7 @@ export const ChampsContainer = styled.div`
             
             .subject {
                 background-color: white;
-                width: 100%;
+                max-width: 100%;
                 min-height: 300px;
                 max-height: 300px;
                 display: flex;
@@ -196,14 +196,15 @@ export const ChampsContainer = styled.div`
                     padding: 20px;
 
                     h3 {
-                        font-size: 2.5rem;
+                        max-width: 400px;   
+                        font-size: 1.5rem;
                         margin: 0 0 20px 0;
                         font-weight: 6800;
                         font-family: ${GlobalFonts.primary};
                     }
     
                     p {
-                        font-size: 1.25rem;
+                        font-size: 1.2rem;
                         margin: 0 0 10px 0;
                     }
 
@@ -258,8 +259,36 @@ export const CounterContainer = styled.div`
     }
 `   
 
+const TestimonialContainer = styled.div`
+        
+`
+
 const Home = () => {
     const { width, height } = useWindowDimensions();
+    const champs = [
+        {
+            img: 'https://drive.google.com/file/d/1EJyCEMpX03rgiE33nV9EnPrNSpn4M_Lr/view',
+            name: '4th SOUTHEAST ASIA CREATIVE CAMP : AUGMENTED REALITY ONLINE WOKSHOP',
+            maintenance: 'SEAMEO',
+            champ: '2',
+            year: '2018',
+        },
+        {
+            img: 'https://drive.google.com/file/d/1xekU9lws3FhIQ9clthc56fzJ4XZjiZIR/view',
+            name: 'LKS MATA LOMBA IT SOFTWARE SOLUTION FOR BUSINESS',
+            maintenance: 'KEMENDIKBUD',
+            champ: '2',
+            year: '2019',
+        },
+        {
+            img: 'https://drive.google.com/file/d/1Ap9A380MRPtLvP7nUUz75ZMqAn_jz4HA/view',
+            name: 'KAMP KREATIF SMK INDONESIA BIDANG PENGEMBANGAN GAME PENDIDIKAN - (JAGAD)',
+            maintenance: 'KEMENDIKBUD   ',
+            champ: '3',
+            year: '2019',
+        },
+    ]
+
 
     useEffect(() => {
         // window.scrollTo(0, 0)
@@ -333,45 +362,21 @@ const Home = () => {
 
                     <div className="ChampsContainer__sections">
                         <div className="subjects">
-                            <div className="subject" data-aos="fade-right" data-aos-duration="1000">
-                                <img src="https://lh3.googleusercontent.com/fife/AAWUweXZgU_n_j1c2fw8r9ujCNBnJrkZRPiZO8AncKKhxtH30UGGTMf0-ZilQWPUdmfXhSZA1SUi-QR5xMXH2TKsy0pNaToAsxCBt_wlM6IjKOGxErDjFfRctuDU0a0MyvbKJITBN_CLFJ0IGkUyNry-RhxwiuNkaxD793N_ZFkc6JsqYF-rxShGCfyd6sXU2PXcQDKFTUAKYoy31sSlCOBhei9lD6tKjSPe18vaHjuaOByHR2eRV_9SphMnhzY1wzhM3LKwT-WeApDHGp9MjY11GDz9BsRm-NDbnDehOuSkav-kCrwQpu85WKh1nQ9mhpuzk_YGX0VpsQItif_S5TxlChdAoiYOWyQ1SGuDHa8fOpqCN58VEJH6fHxJnEvo0px2OmR5JE7IwwSXRtVjtLtqT7IHXkk4M4HwGTVjkC7Zb82W1LvQns400gLEEAmnBNkyzavVGSw51t6gjihS3ZMZVEGjWRuSkuC7vCpxiMp8-LA0yQv36kI6GeeScBg23d-WCTt2B5H3m7IBNf-1CxXxyBk3TtumDbsm-fEUvo3AVG3kwh6Gwj13CHOxDCqLBIQJ8PqbQgEPsNvV8c10zMS-V1KHrXEkGs1Howd6amCfYWTCYU0JN2g5il8i1mqZakuFsFzehejqecb76X50ZCfWjN7J3QPs5f6_OLGppQaHu0WgETeJIIB9k5aYUtoK-i7SmMAIlSddBDzVryNpqKYbpMNS5XPiNDTEbcxvLDf-3v92Rka-UgLoK0YFMiWwPkoqkZciUX15GNsK2VbOZjN88k2r1CpmWuI2MiLgUR4MlMt-pv2YgyAxTDv11zusd1xW4zqu6UdglooItiuP4QTuBmTWfwufGgM9ksXoG-DVYxLKmKSo1_EahfE467Ag_CM=w1920-h969" alt="" />
-                                <div className="description">
-                                    <h3>Psatir Handal</h3>
-                                    <p><i class="fa-regular fa-flag"></i>Lomba KKSI</p>
-                                    <p><i class="fa-solid fa-award"></i>Juara 69</p>
-                                    <p><i class="fa-regular fa-calendar"></i>Tahun 2069</p>
+                            {champs?.map((champ, i) => (    
+                                <div className="subject" data-aos="fade-right" data-aos-duration="1000">
+                                    <img src={`https://drive.google.com/uc?export=download&id=${champ?.img?.split("/d/")[1]?.split("/")[0]}`} alt="Champ Image" />
+                                    <div className="description">
+                                        <h3>{champ?.name}</h3>
+                                        <p><i class="fa-regular fa-flag"></i>{champ?.maintenance}</p>
+                                        <p><i class="fa-solid fa-award"></i>{champ?.champ}</p>
+                                        <p><i class="fa-regular fa-calendar"></i>Tahun {champ?.year}</p>
+                                    </div>
+                                    <div className="CircleContainer">
+                                        <div className="Circle"></div>
+                                        <div className="Circle"></div>
+                                    </div>
                                 </div>
-                                <div className="CircleContainer">
-                                    <div className="Circle"></div>
-                                    <div className="Circle"></div>
-                                </div>
-                            </div>
-                            <div className="subject" data-aos="fade-right" data-aos-duration="1000">
-                                <img src="https://lh3.googleusercontent.com/fife/AAWUweV8zsRF8CYZqynqPiGwn233Sf4bLbU1kdzGgxrjDB0eWVeTF5Zghec3bw4beS9nwtbSCVxzvDabf1kcjEM8nXWuEiB3M6eVAsqTKVW-VjUGOEb34wglFz-t5EZ4wn3-L11hPzo9DtIBjK6m6gEq0FtCD2Ix3Lao8tDB2ONqN734IeK78139HhQMGrIYeyE_hkggcPdVtLquVL8wVqAdFMcokXJWLrOYWsRYRI5LvyJkemoaP4yr4hlgIdsC1yIHSKskJKrbEAYm5vWEDYL7qtRXynY6Az7cpWYxdIRWlqCSEnk4WNGNpDcXo7VDSrdVBi-PpIiFOIdl4Z-gkMPjy5rq2hrM-egn09MX6QoAKeslgB8HuZS9OVV0v8R8-OgY-1uaI2kHGOAUE-TNaU-JwEW9oPpmVnQXRzCZoDEXH3czEKDJ_uBKojliGBKuheX8nAAbdn_Ghm_7JWYKHvCKuKWZ_WD4rytqEyhHxxdzcvYR7oAoY_hB55L9RJqGYRY_LyI1Dt7Q_RFfdmFR19DMG7ddStbyFP1nBMt9TKpPYcMGF64J1HxtxbH84kwI4MKszBzKkCbSVyZPLHRYSOsJa8PWX5d0GAcB-7XHZbEDCuEIjBzObPW-iSCU9e-gP6JSbVWFjYWa65XG4SwdY8Nm9poNSk3zO0DtWD9Gil39OglHs4AcRm_R86a9lS4_5OPhSdWRLDr6qDSeiTY_uytI4kBX04_aMmHcpiWRGgjxQtmhzPysfe498n4_5_vDMPYi4up6ilj6VVxJjIewAGwfH_b8xEdmtZxvS42-BkQLGVNby4qKhGdDA0riSjhq-3-gZWRjtLfWNhXm9A4wrujCTmdENuVPC5XhBVnkOSvApQqK05Pd7sM40InSYIo2W5c=w1059-h969" alt="" />
-                                <div className="description">
-                                    <h3>Psatir Handal</h3>
-                                    <p><i class="fa-regular fa-flag"></i>Lomba KKSI</p>
-                                    <p><i class="fa-solid fa-award"></i>Juara 69</p>
-                                    <p><i class="fa-regular fa-calendar"></i>Tahun 2069</p>
-                                </div>
-                                <div className="CircleContainer">
-                                    <div className="Circle"></div>
-                                    <div className="Circle"></div>
-                                </div>
-                            </div>
-                            <div className="subject" data-aos="fade-right" data-aos-duration="1000">
-                                <img src="https://merriam-webster.com/assets/ld/word_of_the_day/images/4671/large.jpg" alt="" />
-                                <div className="description">
-                                    <h3>Psatir Handal</h3>
-                                    <p><i class="fa-regular fa-flag"></i>Lomba KKSI</p>
-                                    <p><i class="fa-solid fa-award"></i>Juara 69</p>
-                                    <p><i class="fa-regular fa-calendar"></i>Tahun 2069</p>
-                                </div>
-                                <div className="CircleContainer">
-                                    <div className="Circle"></div>
-                                    <div className="Circle"></div>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                         <div className="ChampsContainer__abstract">
                             champions, grind, victory, blood, sweat, tears, pain, devotion, battle, suffer, process, believer, revolution 
