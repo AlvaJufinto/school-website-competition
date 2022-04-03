@@ -7,6 +7,7 @@ import AOS from "aos";
 // import { KeyboardCommandKeyIcon } from '@mui/icons-material';
 
 import Navbar from "../components/Navbar";
+import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import { GlobalColors, GlobalFonts } from "../globals";
 import { StyledSection } from "../components/styledComponents";
@@ -320,6 +321,7 @@ const Jobs = () => {
                         </div>
                     ))}
                 </JobCardsContainer>
+                <Contact />
                 <Footer />
             </StyledSection>
         </>

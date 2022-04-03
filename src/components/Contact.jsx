@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styled from "styled-components";
 import { StyledLink } from "./styledComponents";
 import { GlobalColors, GlobalFonts, GlobalMeasurements } from "./../globals";
@@ -10,29 +10,95 @@ const ContactContainer = styled.div`
 
     p {
         font-size: 1.5rem;
-    }
-
-    input, select {
-        border: none;
-        border-bottom: 1px solid #BBB;
-        font-size: 1.5rem;
-        background-color: transparent;
-        outline: none;
-        font-family: ${GlobalFonts.primary};
+        font-family: ${GlobalFonts.secondary};
         width: 100%;
+        max-width: 800px;
     }
 
-    select {
-        appearance: none;
+    .ContactContainer__wrap {
+        margin: 30px 0 0 0;
+        display: flex;
+        gap: 50px;
 
-        &::-ms-expand {
-            display: none;
+        form{
+            flex: 1;
+
+            input, select {
+                padding: 10px 0px;
+                margin: 10px 0;
+                border: none;
+                border-bottom: 1px solid #BBB;
+                font-size: 1.5rem;
+                background-color: transparent;
+                outline: none;
+                font-family: ${GlobalFonts.primary};
+                width: 100%;
+            }
+        
+            select {
+                color: ${props => props.categoryValue ? 'black' : '#868686'};
+                appearance: none;
+        
+                &::-ms-expand {
+                    color: black;
+                    display: none;
+                }
+            }
+
+            button {
+                margin: 20px 0;
+                cursor: pointer;
+                outline: none;
+                border: none;
+                padding: 30px;
+                font-size: 1.5rem;
+                font-family: ${GlobalFonts.primary}; 
+                width: 100%;
+                background-color: ${GlobalColors.blue};
+                color: white;
+                border: 1px solid ${GlobalColors.blue};
+                transition: all 0.5s ease;
+
+                &:hover {
+                    color: ${GlobalColors.blue};
+                    background-color: white;
+                    border: 1px solid ${GlobalColors.blue};
+                }
+            }
+        }
+
+        .ContactMediaContainer {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            
+            .ContactMedia, .SocialMedia {
+                width: 60%;
+                margin: auto;
+
+                p {
+                    margin: 10px 0px;
+                    font-size: 1.25rem;
+                }
+            }
+
+            .SocialMedia {
+                display: flex;
+                justify-content: space-between;
+
+                i {
+                    font-size: 3rem;
+                    color: ${GlobalColors.grey};
+                }
+            }
         }
     }
 `
 
+
 const Contact = () => {
-    // const [set, category]
+    const [category, setCategory] = useState(false);
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
@@ -40,23 +106,23 @@ const Contact = () => {
 
     return (
         <>
-            <ContactContainer>
+            <ContactContainer categoryValue={category} >
                 <h1>Hubungi kami</h1>
-                <p>Jika merasa ada yang ingin Anda sampaikan janganlah ragu, kami akan menghubungi Anda kembali  secepat mungkin.</p>
+                <p>Jika ada yang ingin disampaikan janganlah ragu, kami akan menghubungi Anda kembali <span style={{ color: GlobalColors.blue, fontWeight: 500 }}>secepat</span> mungkin!</p>
                 
                 <div className="ContactContainer__wrap">
                     <form onSubmit={e => onSubmitHandler(e)}>
                         <input type="text" placeholder='Nama Lengkap'/>
                         <input type="text" placeholder='Email' />
-                        <select id="standard-select"  >
-                            <option value={false}>Kategori</option>
+                        <select id="standard-select" value={category} onChange={e => setCategory(e.target.value)}>
+                            {!category && <option value={false}>Kategori</option>}
                             <option value="orangtuaMurid">Orangtua Murid</option>
                             <option value="murid">Siswa-siswi</option>
                             <option value="perusahaan">Perusahaan</option>
                             <option value="other">Lain-lain</option>
                         </select>
                         <input type="text" placeholder='Pesan' />
-                        <button>Kirim</button>
+                        <button type='submit'>Kirim</button>
                     </form>
                     <div className="ContactMediaContainer">
                         <div className="ContactMedia">  
@@ -67,7 +133,7 @@ const Contact = () => {
                         </div>
                         <div className="ContactMedia">  
                             <h2>Berbincang dengan kami</h2>
-                            <p>+</p>
+                            <p>+62 69420</p>
                             <p>hello@smkn26jkt.com</p>
                         </div>
                         <div className="SocialMedia">
