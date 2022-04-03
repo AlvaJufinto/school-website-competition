@@ -106,7 +106,6 @@ const SearchSection = styled.div`
             z-index: 1;
             cursor: pointer;
             opacity: 0.4;
-            cursor: pointer;
             transition: opacity .4s ease;
         }
     

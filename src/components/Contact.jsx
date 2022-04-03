@@ -4,22 +4,58 @@ import { StyledLink } from "./styledComponents";
 import { GlobalColors, GlobalFonts, GlobalMeasurements } from "./../globals";
 
 const ContactContainer = styled.div`
-    
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+
+    input, select {
+        border: none;
+        border-bottom: 1px solid #BBB;
+        font-size: 1.5rem;
+        background-color: transparent;
+        outline: none;
+        font-family: ${GlobalFonts.primary};
+        width: 100%;
+    }
+
+    select {
+        appearance: none;
+
+        &::-ms-expand {
+            display: none;
+        }
+    }
 `
 
 const Contact = () => {
+    // const [set, category]
+
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+    }   
 
     return (
         <>
             <ContactContainer>
-                <h2>Hubungi kami</h2>
-                <p>Jika Anda merasa ada yang ingin disampaikan, sampaikan saja! Kami akan menghubungi Anda kembali secepat mungkin.</p>
+                <h1>Hubungi kami</h1>
+                <p>Jika merasa ada yang ingin Anda sampaikan janganlah ragu, kami akan menghubungi Anda kembali  secepat mungkin.</p>
                 
                 <div className="ContactContainer__wrap">
-                    <form action="">
-                        <input type="text" />
-                        <input type="text" />
-                        <input type="text" />
+                    <form onSubmit={e => onSubmitHandler(e)}>
+                        <input type="text" placeholder='Nama Lengkap'/>
+                        <input type="text" placeholder='Email' />
+                        <select id="standard-select"  >
+                            <option value={false}>Kategori</option>
+                            <option value="orangtuaMurid">Orangtua Murid</option>
+                            <option value="murid">Siswa-siswi</option>
+                            <option value="perusahaan">Perusahaan</option>
+                            <option value="other">Lain-lain</option>
+                        </select>
+                        <input type="text" placeholder='Pesan' />
                         <button>Kirim</button>
                     </form>
                     <div className="ContactMediaContainer">
