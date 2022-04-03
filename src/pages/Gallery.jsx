@@ -10,7 +10,7 @@ import Navbar from "../components/Navbar";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import { GlobalColors, GlobalFonts } from "../globals";
-import { googleDriveParser } from "../utils";
+import { googleDriveParser, champImages, buildingImages } from "../utils";
 import { StyledSection } from "../components/styledComponents";
 
 export const QuoteSection = styled.div`
@@ -140,67 +140,8 @@ const Gallery = () => {
     const { width, height } = useWindowDimensions();
     
     useEffect(() => {
-        window.scrollTo(0, 0);
         AOS.init({ once: true });
     }, []);
-    
-    const champImages = [
-        {
-            image: 'https://drive.google.com/file/d/11ZlKum3W4YjeA2R6V7-HoClNppr0zi6f/view',
-            message: "Aren't they cool?"
-        },
-        {
-            image: "https://drive.google.com/file/d/1W5muq1dttSKh3n3wdxd2eXCq6ZNqjrmi/view",
-            message: "We're the champs!"
-        },
-        {
-            image: "https://drive.google.com/file/d/1O6nvlnbdEgbaY33_vPWN14dnre4_kyg3/view",
-            message: "Just leave no doubt to us."
-        },
-        {
-            image: 'https://drive.google.com/file/d/1isRmZHevnqeJgnM3ZqjlwPAug1nm5I93/view',
-            message: "Yes, we're amazing."
-        },
-        {
-            image: "https://drive.google.com/file/d/1Sjj6Z6_6KN5DCXP3I1VTuiFxDPVHyv3z/view",
-            message: "This is cool, right?"
-        },
-        {
-            image: 'https://drive.google.com/file/d/1s4CCKXTeT7GTEuczPXOdvyh8acevEmZk/view',
-            message: "No one can stop us!"
-        },
-    ]
-
-    const buildingImages = [ 
-        {
-            image: 'https://drive.google.com/file/d/1BLJQ4k1kkfjn8_vNlMckZ7Qfg2stW0N8/view',
-            message: 'What they doin huh?',
-        },
-        {
-            image: 'https://drive.google.com/file/d/1Xj19aD2QGaWExZfx-QWmRjc2G_KHcUwJ/view',
-            message: "This is not close up",
-        },
-        {
-            image: 'https://drive.google.com/file/d/1SuXqFkm5UUwD-nGeWQWQF-toj_8RQEY6/view',
-            message: "Here's the right side.",
-        },
-        {
-            image: 'https://drive.google.com/file/d/1qfVeU-E1vlzu-QvX7RKqGjWIfxCwhJNb/view',
-            message: "I know... It looks like a prison at first sight",
-        },
-        {
-            image: 'https://drive.google.com/file/d/19jiuWMyF1b9hrqD24RUEFU4K2mVpFxzc/view',
-            message: "Ay these are from victorious era",
-        },
-        {
-            image: 'https://drive.google.com/file/d/1gnoOsPsq3FTBoKRMotN9yPik5AKBDK5y/view',
-            message: "Here's the left side.",
-        },
-        {
-            image: 'https://drive.google.com/file/d/1SuXqFkm5UUwD-nGeWQWQF-toj_8RQEY6/view',
-            message: "Here's the right side.",
-        },
-    ]
 
     const GalleryComponent = ({ params }) => {
         const horizontalElement = useRef();

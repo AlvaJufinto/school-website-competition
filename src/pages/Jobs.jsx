@@ -10,6 +10,7 @@ import Navbar from "../components/Navbar";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import { GlobalColors, GlobalFonts } from "../globals";
+import { jobs } from "../utils";
 import { StyledSection } from "../components/styledComponents";
 
 const QuoteSection = styled.div`
@@ -207,97 +208,14 @@ const Jobs = () => {
     let filteredJobs = [];
 
     useEffect(() => {
+        // TODO: auto scroll to bottom????
         window.scrollTo(0, 0);
         AOS.init({ once: true });
-    }, [width]);
+    }, []);
 
     useEffect(() => {
         setJobContainerWidth(jobsContainer.current ? jobsContainer.current.offsetWidth : width - 40);
     }, [jobsContainer.current, width]);
-
-    const jobs = [
-        {
-            name: "Frontend Developer",
-            place: "Jakarta Timur",
-            company: "PT Mencari Cinta Sejati",
-            description: "Frontend developer yang berpengalaman selama 69 tahun",
-            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-            salary: "Rp. 5.000.000 - 20.000.000",
-        },
-        {
-            name: "Backend Developer",
-            place: "Jakarta Barat",
-            company: "PT Mencari Cinta Sejati",
-            description: "Sseorang Backend Developer yang berpengalaman selama 69 tahun di perusahaan Ogah Rugi",
-            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-            salary: "Rp. 10.000.000 - 18.000.000",
-        },
-        {
-            name: "Psatir Handal",
-            place: "Jakarta Timur",
-            company: "PsaTir",
-            description: "Psatir handal sangat dibutuhkan untuk menstranslate bahasa satir dengan bahasa manusia",
-            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-            salary: "Rp. 5.000.000 - 20.000.000",
-        },
-        {
-            name: "UI/UX Designer",
-            place: "Jakarta Selatan",
-            company: "Jakarta Pusat",
-            description: "Ahli UI Design yang telah memiliki pengalaman selama 5 tahun",
-            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-            salary: "Rp. 5.000.000 - 20.000.000",
-        },
-        {
-            name: "Network Designer",
-            place: "Jakarta Barat",
-            company: "PT kang Jaringan",
-            description: "Kamg jaringan yang jago merancang SOHO dengan pengalaman magang 1 tahun di PT mencari cinta sejati",
-            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-            salary: "Rp. 5.000.000 - 20.000.000",
-        },
-        {
-            name: "Android Developer",
-            place: "Jakarta Pusat",
-            company: "PT Anddroid Supremacy",
-            description: "Manusia Android yang sudah menguasai bahasa Java dan Kotlin serta sudah berpengalaman di bidang ini selama 4 tahun",
-            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-            salary: "Rp. 8.000.000 - 15.000.000",
-        },
-        {
-            name: "React Native Developer",
-            place: "Jakarta Pusat",
-            company: "PT react native is now fast",
-            description: "React Native is now fast brother",
-            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-            salary: "Rp. 10.000.000 - 12.000.000",
-        },
-        {
-            name: "MERN Developer",
-            place: "Jakarta Timur",
-            company: "PT Anddroid Supremacy",
-            description: "MERN Developer yang sudah terbiasa disiksa 24/7 dan siap membuat aplikasi fullstack sesuai keinginan Anda",
-            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-            salary: "Rp. 15.000.000 - 22.000.000",
-        },
-        {
-            name: "PHP Developer",
-            place: "Jakarta Barat",
-            company: "PT Anddroid Supremacy",
-            description: "Fullstack Developer yang ahli dalam menggunakan framework Laravel dan Codeigniter",
-            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-            salary: "Rp. 5.000.000 - 12.000.000",
-        },
-        {
-            name: "Satpam Jaringan",
-            place: "Jakarta Selatan",
-            company: "Ga tau mau nulis apa.",
-            description: "manusia yang siap bekerja di bawah tekanan selama 24/7 demi mengawasi lalu lintas jaringan Anda",
-            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-            salary: "Rp. 18.000.000 - 15.000.000",
-        },
-
-    ];
     
     return ( 
         <>

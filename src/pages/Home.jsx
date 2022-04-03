@@ -10,7 +10,7 @@ import Navbar from "../components/Navbar";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import { GlobalColors, GlobalFonts } from "../globals";
-import { googleDriveParser } from "../utils";
+import { googleDriveParser, champsHome, subjects } from "../utils";
 import { StyledSection } from "../components/styledComponents";
 
 const HeroContainer = styled.div`
@@ -377,71 +377,7 @@ const Home = () => {
         setJobContainerWidth(jobsContainer.current ? jobsContainer.current.offsetWidth : width - 40);
     }, [jobsContainer.current, width]);
 
-    const champsHome = [
-        {
-            img: 'https://drive.google.com/file/d/1EJyCEMpX03rgiE33nV9EnPrNSpn4M_Lr/view',
-            name: '4th SOUTHEAST ASIA CREATIVE CAMP : AUGMENTED REALITY ONLINE WOKSHOP',
-            maintenance: 'SEAMEO',
-            champ: '2',
-            year: '2018',
-        },
-        {
-            img: 'https://drive.google.com/file/d/1xekU9lws3FhIQ9clthc56fzJ4XZjiZIR/view',
-            name: 'LKS MATA LOMBA IT SOFTWARE SOLUTION FOR BUSINESS',
-            maintenance: 'KEMENDIKBUD',
-            champ: '2',
-            year: '2019',
-        },
-        {
-            img: 'https://drive.google.com/file/d/1Ap9A380MRPtLvP7nUUz75ZMqAn_jz4HA/view',
-            name: 'KAMP KREATIF SMK INDONESIA BIDANG PENGEMBANGAN GAME PENDIDIKAN - (JAGAD)',
-            maintenance: 'KEMENDIKBUD   ',
-            champ: '3',
-            year: '2019',
-        },
-    ]
-
-    const subjects = [
-        {
-            name: 'Dasar Desain Grafis',
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
-        },
-        {
-            name: 'Komputer dan Jaringan Dasar',
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
-        },
-        {
-            name: 'Pemrograman Dasar',
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
-        },
-        {
-            name: 'Sistem Komputer',
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
-        },
-        {
-            name: 'Software as a Service (SaaS)',
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
-        },
-        {
-            name: 'Platform as a Service (PaaS)',
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
-        },
-        {
-            name: 'Infrastructure as a Service (IaaS)',
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
-        },
-        {
-            name: 'Sistem Keamanan Jaringan (SKJ)',
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
-        },
-        {
-            name: 'Internet of Things (IoT)',
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
-        },
-    ];
-
     useEffect(() => {
-        // window.scrollTo(0, 0)
         AOS.init({ once: true });
     }, []);
 
