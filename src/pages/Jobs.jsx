@@ -123,6 +123,14 @@ const JobCardsContainer = styled.div`
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    min-height: 500px;
+
+    .JobCardsContainer__NotFound {
+        margin: 50px auto;
+        font-size: 2.25rem;
+        font-family: ${GlobalFonts.secondary};
+        text-align: center;
+    }
 
     .CircleContainer {
         display: flex;
@@ -272,7 +280,7 @@ const Jobs = () => {
                             </div>
                         </div>
                     ))}
-                    {value.length > 0 && filteredJobs.length === 0 && <p className="JobCardsContainer__NotFound" data-aos="fade-up" data-aos-duration="800" >Pekerjaan tidak ditemukan</p>}
+                    {value.length > 0 && filteredJobs.length === 0 && <p className="JobCardsContainer__NotFound" data-aos="fade-up" data-aos-duration="800" >Pekerjaan <span className="underline">tidak ditemukan</span>, mungkin Anda bisa <span style={{ color: GlobalColors.blue, fontWeight: 400 }}>mencoba </span> keyword lain <i class="fa-solid fa-question"></i></p>}
                 </JobCardsContainer>
                 <Contact />
                 <Footer />
