@@ -357,9 +357,13 @@ const SubjectContainer = styled.div`
     }
 
     @media (max-width: 768px) {
-        .SubjectsContainer__card {
-            width: 100%;
+        .SubjectsContainer {
+            
+            .SubjectsContainer__card {
+                width: 100%;
+            }
         }
+
     }
 `
 
