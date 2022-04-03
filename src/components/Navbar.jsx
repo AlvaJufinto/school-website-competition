@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import styled from "styled-components";
-import { StyledLink } from "./styledComponents";
+import { useNavigate } from "react-router-dom";
 import { GlobalColors, GlobalFonts, GlobalMeasurements } from "./../globals";
 
 import Logo26 from "./../assets/img/26-logo.png";
@@ -129,7 +129,9 @@ export const NavContainer = styled.div`
         height: 100%;
         font-family: ${GlobalFonts.secondary};
         
-        ${StyledLink} {
+        p {
+            cursor: pointer;
+            color: white;
             position: relative;
             transition: all 0.5s ease;
 
@@ -163,27 +165,37 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     let listener = null
     const [scrollState, setScrollState] = useState("top")
-    
-    useEffect(() => {
-      listener = document.addEventListener("scroll", e => {
-        var scrolled = document.scrollingElement.scrollTop
-        if (scrolled >= 120) {
-          if (scrollState !== "bottom") {
-            setScrollState("bottom")
-            console.log("Bottom")
-          }
-        } else {
-          if (scrollState !== "top") {
-            setScrollState("top")
-            console.log("Top")
-          }
-        }
-      })
-      return () => {
-        document.removeEventListener("scroll", listener)
-      }
-    }, [scrollState])
+    let navigate = useNavigate();
 
+    // useEffect(() => {
+    //   listener = document.addEventListener("scroll", e => {
+    //     var scrolled = document.scrollingElement.scrollTop
+    //     if (scrolled >= 120) {
+    //       if (scrollState !== "bottom") {
+    //         setScrollState("bottom")
+    //         console.log("Bottom")
+    //       }
+    //     } else {
+    //       if (scrollState !== "top") {
+    //         setScrollState("top")
+    //         console.log("Top")
+    //       }
+    //     }
+    //   })
+    //   return () => {
+    //     document.removeEventListener("scroll", listener)
+    //   }
+    // }, [scrollState])
+
+
+    const navigatePage = (page) => {
+        window.scrollTo(0, 0)
+        setIsOpen(false);
+        
+        setTimeout(() => {
+            navigate(`/${page}`, { replace: true });
+        }, 1800)
+    }
 
     return (
         <>
@@ -207,9 +219,9 @@ const Navbar = () => {
                             <p>JAKARTA</p>
                         </div>
                         <div className="NavContainer__Links">
-                            <StyledLink to="/"><span>01</span>Home</StyledLink>
-                            <StyledLink to="/gallery"><span>02</span>Gallery</StyledLink>
-                            <StyledLink to="/jobs"><span>03</span>Jobs</StyledLink>
+                            <p onClick={() => navigatePage('')}><span>01</span>Home</p>
+                            <p onClick={() => navigatePage('gallery')}><span>02</span>Gallery</p>
+                            <p onClick={() => navigatePage('jobs')}><span>03</span>Jobs</p>
                         </div>
                     </section>
                 </NavContainer>

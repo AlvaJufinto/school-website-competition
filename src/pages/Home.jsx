@@ -10,9 +10,10 @@ import Navbar from "../components/Navbar";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import { GlobalColors, GlobalFonts } from "../globals";
+import { googleDriveParser } from "../utils";
 import { StyledSection } from "../components/styledComponents";
 
-export const HeroContainer = styled.div`
+const HeroContainer = styled.div`
     padding: 150px 0 0 0;
     position: relative;
 
@@ -61,7 +62,7 @@ export const HeroContainer = styled.div`
     }
 `
 
-export const AboutContainer = styled.div`
+const AboutContainer = styled.div`
     margin: 0px 0;
     position: relative;
 
@@ -124,7 +125,7 @@ export const AboutContainer = styled.div`
     }
 `   
 
-export const ChampsContainer = styled.div`
+const ChampsContainer = styled.div`
     margin: 300px 0 200px 0;
     
     h2 {
@@ -265,7 +266,7 @@ export const ChampsContainer = styled.div`
     }
 `
 
-export const CounterContainer = styled.div`
+const CounterContainer = styled.div`
     
     h2 {
         text-align: center;
@@ -372,7 +373,11 @@ const Home = () => {
     const jobsContainer = useRef();
     const [jobContainerWidth, setJobContainerWidth] = useState();
 
-    const champs = [
+    useEffect(() => {
+        setJobContainerWidth(jobsContainer.current ? jobsContainer.current.offsetWidth : width - 40);
+    }, [jobsContainer.current, width]);
+
+    const champsHome = [
         {
             img: 'https://drive.google.com/file/d/1EJyCEMpX03rgiE33nV9EnPrNSpn4M_Lr/view',
             name: '4th SOUTHEAST ASIA CREATIVE CAMP : AUGMENTED REALITY ONLINE WOKSHOP',
@@ -395,10 +400,6 @@ const Home = () => {
             year: '2019',
         },
     ]
-
-    useEffect(() => {
-        setJobContainerWidth(jobsContainer.current ? jobsContainer.current.offsetWidth : width - 40);
-    }, [jobsContainer.current, width]);
 
     const subjects = [
         {
@@ -443,8 +444,8 @@ const Home = () => {
         // window.scrollTo(0, 0)
         AOS.init({ once: true });
     }, []);
-    
-      return ( 
+
+    return ( 
         <>
             <StyledSection>
                 <Navbar />
@@ -484,7 +485,7 @@ const Home = () => {
                     </div>
 
                     <Parallax translateX={width > 1024 ? [5, -20] : [0, 0]}>
-                        <h2 className="statistic" >Statistik  <span className="underline">SIJA’26</span></h2>
+                        <h2 className="statistic" >Statistik <span className="underline">SIJA’26</span></h2>
                     </Parallax>
                     <div className="AboutContainer__CounterHolder">
                         <div className="Counter">
@@ -511,9 +512,9 @@ const Home = () => {
 
                     <div className="ChampsContainer__sections">
                         <div className="subjects">
-                            {champs?.map((champ, i) => (    
+                            {champsHome?.map((champ, i) => (    
                                 <div className="subject" data-aos="fade-right" data-aos-duration="1000">
-                                    <img src={`https://drive.google.com/uc?export=download&id=${champ?.img?.split("/d/")[1]?.split("/")[0]}`} alt="Champ Image" />
+                                    <img src={googleDriveParser(champ?.img)} alt="Champ Image" />
                                     <div className="description">
                                         <h3>{champ?.name}</h3>
                                         <p><i class="fa-regular fa-flag"></i>{champ?.maintenance}</p>

@@ -10,6 +10,7 @@ import Navbar from "../components/Navbar";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import { GlobalColors, GlobalFonts } from "../globals";
+import { googleDriveParser } from "../utils";
 import { StyledSection } from "../components/styledComponents";
 
 export const QuoteSection = styled.div`
@@ -137,14 +138,12 @@ export const GallerySection = styled.div`
 
 const Gallery = () => {
     const { width, height } = useWindowDimensions();
-    const horizontalElement = useRef();
-    const { onMouseDown } = useDraggableScroll(horizontalElement);
     
     useEffect(() => {
         window.scrollTo(0, 0);
         AOS.init({ once: true });
     }, []);
-
+    
     const champImages = [
         {
             image: 'https://drive.google.com/file/d/11ZlKum3W4YjeA2R6V7-HoClNppr0zi6f/view',
@@ -172,6 +171,59 @@ const Gallery = () => {
         },
     ]
 
+    const buildingImages = [ 
+        {
+            image: 'https://drive.google.com/file/d/1BLJQ4k1kkfjn8_vNlMckZ7Qfg2stW0N8/view',
+            message: 'What they doin huh?',
+        },
+        {
+            image: 'https://drive.google.com/file/d/1Xj19aD2QGaWExZfx-QWmRjc2G_KHcUwJ/view',
+            message: "This is not close up",
+        },
+        {
+            image: 'https://drive.google.com/file/d/1SuXqFkm5UUwD-nGeWQWQF-toj_8RQEY6/view',
+            message: "Here's the right side.",
+        },
+        {
+            image: 'https://drive.google.com/file/d/1qfVeU-E1vlzu-QvX7RKqGjWIfxCwhJNb/view',
+            message: "I know... It looks like a prison at first sight",
+        },
+        {
+            image: 'https://drive.google.com/file/d/19jiuWMyF1b9hrqD24RUEFU4K2mVpFxzc/view',
+            message: "Ay these are from victorious era",
+        },
+        {
+            image: 'https://drive.google.com/file/d/1gnoOsPsq3FTBoKRMotN9yPik5AKBDK5y/view',
+            message: "Here's the left side.",
+        },
+        {
+            image: 'https://drive.google.com/file/d/1SuXqFkm5UUwD-nGeWQWQF-toj_8RQEY6/view',
+            message: "Here's the right side.",
+        },
+    ]
+
+    const GalleryComponent = ({ params }) => {
+        const horizontalElement = useRef();
+        const { onMouseDown } = useDraggableScroll(horizontalElement);
+
+        return (
+        <GallerySection>
+            <h2 data-aos="fade-up" data-aos-duration="1000">{params?.text} <span className="underline">SIJA'26</span> </h2>
+            <Parallax translateX={width > 1024 ? [-5, 0] : [0,0]}>
+                <p>Geser bang...</p>
+            </Parallax>
+            <div className="GallerySection__photos" ref={horizontalElement} onMouseDown={onMouseDown}>
+                {params?.data?.map((item, i) => (
+                    <div className="Champ" data-aos="fade-up" data-aos-duration="1000" >
+                        <img  loading="lazy" src={googleDriveParser(item?.image)} alt="Champ Image" className="GalleryImg" />
+                        <p>{i < 10 ? '0' : ''}{i + 1} - {item?.message}</p>     
+                    </div>
+                ))}
+            </div>
+        </GallerySection>
+        )
+    }
+
     return ( 
         <>
             <StyledSection>
@@ -198,20 +250,17 @@ const Gallery = () => {
                     </div>
                 </QuoteSection>
             </StyledSection>
-            <GallerySection>
-                <h2 data-aos="fade-up" data-aos-duration="1000">Gallery Kemenangan <span className="underline">SIJA'26</span> </h2>
-                <Parallax translateX={width > 1024 ? [-5, 0] : [0,0]}>
-                    <p>Geser bang...</p>
-                </Parallax>
-                <div className="GallerySection__photos" ref={horizontalElement} onMouseDown={onMouseDown}>
-                    {champImages?.map((champ, i) => (
-                        <div className="Champ" data-aos="fade-up" data-aos-duration="1000" >
-                            <img  loading="lazy" src={`https://drive.google.com/uc?export=download&id=${champ?.image?.split("/d/")[1]?.split("/")[0]}`} alt="Champ Image" className="GalleryImg" />
-                            <p>{i < 10 ? '0' : ''}{i + 1} - {champ?.message}</p>     
-                        </div>
-                    ))}
-                </div>
-            </GallerySection>
+
+            <GalleryComponent params={{ 
+                data: champImages,
+                text: 'Gallery Kemenangan'
+             }} />
+
+            <GalleryComponent params={{ 
+                data: buildingImages,
+                text: 'Gallery Gedung'
+             }} />
+
             <StyledSection>
                 <Contact />
                 <Footer />
