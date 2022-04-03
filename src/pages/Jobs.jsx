@@ -214,7 +214,6 @@ const Jobs = () => {
     useEffect(() => {
         setJobContainerWidth(jobsContainer.current ? jobsContainer.current.offsetWidth : width - 40);
     }, [jobsContainer.current, width]);
-    
 
     const jobs = [
         {
@@ -355,6 +354,7 @@ const Jobs = () => {
                             </div>
                         </div>
                     ))}
+                    {value.length > 0 && filteredJobs.length === 0 && <p className="JobCardsContainer__NotFound" data-aos="fade-up" data-aos-duration="800" >Pekerjaan tidak ditemukan</p>}
                 </JobCardsContainer>
                 <Contact />
                 <Footer />

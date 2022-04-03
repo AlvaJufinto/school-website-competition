@@ -16,7 +16,7 @@ export const FooterContainer = styled.div`
         
         .FooterContainer__SocialMedia {
             font-family: ${GlobalFonts.secondary};
-            font-weight: 300;
+            font-weight: 400;
             display: flex;
             gap: 20px;
             font-size: 1.5rem;

@@ -6,6 +6,7 @@ import { GlobalColors, GlobalFonts, GlobalMeasurements } from "./../globals";
 const ContactContainer = styled.div`
     h1 {
         font-size: 2.5rem;
+        margin: 0 0 10px 0;
     }
 
     p {
@@ -74,8 +75,6 @@ const ContactContainer = styled.div`
             justify-content: space-around;
             
             .ContactMedia, .SocialMedia {
-                width: 60%;
-                margin: auto;
 
                 p {
                     margin: 10px 0px;
@@ -93,6 +92,14 @@ const ContactContainer = styled.div`
                 }
             }
         }
+    }
+
+    @media (max-width: 1024px) {
+        .ContactContainer__wrap {
+            flex-direction: column;
+            height: 800px;
+        }
+        
     }
 `
 
