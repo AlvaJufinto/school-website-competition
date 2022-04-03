@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { Parallax } from "react-scroll-parallax";
 import useWindowDimensions from "./../hooks/useWindowDimensions";
@@ -224,7 +224,7 @@ export const ChampsContainer = styled.div`
         }
         
     }
-
+    
     @media (max-width: 1024px) {
         h2 {
             text-align: center;
@@ -273,8 +273,101 @@ export const CounterContainer = styled.div`
     }
 `   
 
+const SubjectContainer = styled.div`
+    h2 {
+        margin: 150px 0px 100px 0;
+        text-align: center;
+        font-size: 3rem;
+    }
+
+    .SubjectsContainer {
+        margin: 100px 0 250px 0;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        .CircleContainer {
+            display: flex;
+            justify-content: space-between;
+
+            .Circle {
+                height: 10px;
+                width: 10px;
+                border-radius: 50%;
+                border: 1px solid ${GlobalColors.blue};
+            }
+        }
+
+        .SubjectsContainer__card {
+            /* max-height: 250px; */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: ${props => (props?.jobsContainer / 3) - 18}px;
+            background-color: white;
+            box-shadow: 0px 1px 45px -1px rgba(207, 207, 207, 0.5);
+            padding: 20px;
+
+            .informationContainer {
+                /* margin: 20px 0px; */
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+                align-items: center;
+                text-align: center;
+
+                .jobTitle {
+                    border: 1px solid ${GlobalColors.blue};
+                    border-radius: 50%;
+                    width: 50px;
+                    height: 50px;
+                    display: grid;
+                    place-items: center;
+                    margin: 0 0 20px 0;
+                }
+                
+                h1 {
+                    font-family: ${GlobalFonts.primary};
+                    margin: 0 0 20px 0;
+                }
+
+                p {
+                    font-family: ${GlobalFonts.secondary};
+                    margin: 5px;
+                
+                    &.salary {
+                        margin: 15px 0px;
+                        color: ${GlobalColors.blue};
+                        font-weight: 500;
+                        font-size: 1rem;
+                        border-radius: 20px;
+                        border: 1px solid ${GlobalColors.blue};
+                        padding: 5px 10px; 
+                    }
+                }
+
+                a {
+                    color: ${GlobalColors.blue};
+                    font-family: ${GlobalFonts.secondary};
+                    margin: 20px 0 0 0;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .SubjectsContainer__card {
+            width: 100%;
+        }
+    }
+`
+
 const Home = () => {
     const { width, height } = useWindowDimensions();
+    const jobsContainer = useRef();
+    const [jobContainerWidth, setJobContainerWidth] = useState();
+
     const champs = [
         {
             img: 'https://drive.google.com/file/d/1EJyCEMpX03rgiE33nV9EnPrNSpn4M_Lr/view',
@@ -299,6 +392,48 @@ const Home = () => {
         },
     ]
 
+    useEffect(() => {
+        setJobContainerWidth(jobsContainer.current ? jobsContainer.current.offsetWidth : width - 40);
+    }, [jobsContainer.current, width]);
+
+    const subjects = [
+        {
+            name: 'Dasar Desain Grafis',
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
+        },
+        {
+            name: 'Komputer dan Jaringan Dasar',
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
+        },
+        {
+            name: 'Pemrograman Dasar',
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
+        },
+        {
+            name: 'Sistem Komputer',
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
+        },
+        {
+            name: 'Software as a Service (SaaS)',
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
+        },
+        {
+            name: 'Platform as a Service (PaaS)',
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
+        },
+        {
+            name: 'Infrastructure as a Service (IaaS)',
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
+        },
+        {
+            name: 'Sistem Keamanan Jaringan (SKJ)',
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
+        },
+        {
+            name: 'Internet of Things (IoT)',
+            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
+        },
+    ];
 
     useEffect(() => {
         // window.scrollTo(0, 0)
@@ -393,6 +528,33 @@ const Home = () => {
                         </div>
                     </div>
                 </ChampsContainer>
+                <SubjectContainer ref={jobsContainer} jobsContainer={jobContainerWidth}>
+                    <Parallax translateX={width > 1024 ? [10, 0] : [0, 0]}>
+                        <h2>Mata Pelajaran <span className="underline">SIJA’26</span></h2>
+                    </Parallax>  
+
+                    <div className="SubjectsContainer">
+                        {subjects?.map((subject, i) => (
+                            <div className="SubjectsContainer__card" key={i} data-aos="fade-up" data-aos-duration="500">
+                                <div className="CircleContainer">
+                                    <div className="Circle"></div>
+                                    <div className="Circle"></div>
+                                </div>
+                                <div className="informationContainer">
+                                    <div className="jobTitle">
+                                        <i class="fa-solid fa-book-open"></i>
+                                    </div>
+                                    <h1>{subject?.name}</h1>
+                                    <p>{subject?.description}</p>
+                                </div>
+                                <div className="CircleContainer">
+                                    <div className="Circle"></div>
+                                    <div className="Circle"></div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </SubjectContainer>
                 <Contact /> 
                 <Footer />
             </StyledSection>

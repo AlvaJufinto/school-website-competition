@@ -150,6 +150,8 @@ const JobCardsContainer = styled.div`
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: space-between;
+            height: 100%;
             text-align: center;
 
             .jobTitle {
@@ -263,6 +265,39 @@ const Jobs = () => {
             link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
             salary: "Rp. 8.000.000 - 15.000.000",
         },
+        {
+            name: "React Native Developer",
+            place: "Jakarta Pusat",
+            company: "PT react native is now fast",
+            description: "React Native is now fast brother",
+            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            salary: "Rp. 10.000.000 - 12.000.000",
+        },
+        {
+            name: "MERN Developer",
+            place: "Jakarta Timur",
+            company: "PT Anddroid Supremacy",
+            description: "MERN Developer yang sudah terbiasa disiksa 24/7 dan siap membuat aplikasi fullstack sesuai keinginan Anda",
+            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            salary: "Rp. 15.000.000 - 22.000.000",
+        },
+        {
+            name: "PHP Developer",
+            place: "Jakarta Barat",
+            company: "PT Anddroid Supremacy",
+            description: "Fullstack Developer yang ahli dalam menggunakan framework Laravel dan Codeigniter",
+            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            salary: "Rp. 5.000.000 - 12.000.000",
+        },
+        {
+            name: "Satpam Jaringan",
+            place: "Jakarta Selatan",
+            company: "Ga tau mau nulis apa.",
+            description: "manusia yang siap bekerja di bawah tekanan selama 24/7 demi mengawasi lalu lintas jaringan Anda",
+            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            salary: "Rp. 18.000.000 - 15.000.000",
+        },
+
     ];
     
     return ( 
