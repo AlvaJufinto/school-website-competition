@@ -195,7 +195,7 @@ const Contact = () => {
                                 "Kirim"}
                             </button>
                     </form>
-                    <div className="ContactMediaContainer" data-aos="fade-left" data-aos-duration="1000" data-aos-offset="-600" >
+                    <div className="ContactMediaContainer" data-aos="fade-left" data-aos-duration="1000" data-aos-offset="-1700" >
                         <div className="ContactMedia">  
                             <h2>Kunjungi kami</h2>
                             <p>

@@ -476,7 +476,7 @@ const Home = () => {
 
                     <div className="SubjectsContainer">
                         {subjects?.map((subject, i) => (
-                            <div className="SubjectsContainer__card" key={i} data-aos="fade-up" data-aos-duration="500">
+                            <div className="SubjectsContainer__card" key={i} data-aos="fade-up" data-aos-duration="500" data-aos-offset="-600" >
                                 <div className="CircleContainer">
                                     <div className="Circle"></div>
                                     <div className="Circle"></div>

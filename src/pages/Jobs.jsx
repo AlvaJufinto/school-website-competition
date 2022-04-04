@@ -123,7 +123,6 @@ const JobCardsContainer = styled.div`
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-    justify-content: center;
     min-height: 500px;
 
     .JobCardsContainer__NotFound {
@@ -260,7 +259,7 @@ const Jobs = () => {
                 
                 <JobCardsContainer ref={jobsContainer} jobsContainer={jobContainerWidth}>
                     {filteredJobs?.map((jobs, i) => (
-                        <div className="JobsCardsContainer__card" key={i} data-aos="fade-up" data-aos-duration="800">
+                        <div className="JobsCardsContainer__card" key={i} data-aos="fade-up" data-aos-duration="800" data-aos-offset="-1200"> 
                             <div className="CircleContainer">
                                 <div className="Circle"></div>
                                 <div className="Circle"></div>
