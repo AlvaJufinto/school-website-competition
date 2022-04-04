@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useLocation } from "react-router-dom";
 import AOS from "aos";  
 import styled from "styled-components";
 import { StyledLink } from "./styledComponents";
@@ -119,13 +120,14 @@ const Contact = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [success, setSuccess] = useState(null);
-        
+    const { pathname } = useLocation();
+
     const nama = useRef();
     const email = useRef();
     const pesan = useRef();
     
     useEffect(() => {
-        AOS.init({ once: true });
+        AOS.init({ offset: -600 });
     }, []);
 
     const onSubmitHandler = async (e) => {
@@ -162,14 +164,14 @@ const Contact = () => {
 
     return (
         <>
-            <ContactContainer categoryValue={category} >
-                <div data-aos="fade-up" data-aos-duration="1000">
+            <ContactContainer categoryValue={category}>
+                <div >   
                     <h1>Hubungi kami</h1>
                     <p>Jika ada yang ingin disampaikan janganlah ragu, kami akan menghubungi Anda kembali <span style={{ color: GlobalColors.blue, fontWeight: 500 }}>secepat</span> mungkin!</p>
                 </div>
                 
                 <div className="ContactContainer__wrap" >
-                    <form onSubmit={e => onSubmitHandler(e)} id="my-form" data-aos="fade-right" data-aos-duration="1000">
+                    <form onSubmit={e => onSubmitHandler(e)} id="my-form" >
                         <input type="text" placeholder='Nama Lengkap' ref={nama} name="nama" required />
                         <input type="email" placeholder='Email' ref={email} name="email" />
                         <select id="standard-select" value={category} onChange={e => setCategory(e.target.value)} name="kategori" required>
