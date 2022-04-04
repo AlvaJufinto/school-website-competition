@@ -15,6 +15,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800&family=Raleway:ital,wght@0,100;0,200;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbyp5lM4a5oCT2ArLvYcjdhXSKrjbIIfBkyrG5RPG-puLzPgaxal-_bFwrZ3x2YbaOat/exec'
+      const form = document.forms['sija-contact-form']
+
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => console.log('Success!', response))
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
+    
     <title>SIJA'26</title>
   </head>
   <body style="max-width: 100vw; overflow-x: none;" >
@@ -24,5 +36,6 @@
     <!-- Never gonna give you up, never gonna let you down -->
 
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+    
   </body>
 </html>

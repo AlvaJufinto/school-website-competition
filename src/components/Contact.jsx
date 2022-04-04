@@ -21,7 +21,17 @@ const ContactContainer = styled.div`
         display: flex;
         gap: 50px;
 
-        form{
+        .error {
+            color: red;
+            font-size: 1.25rem;
+        }
+
+        .success {
+            color: green;
+            font-size: 1.25rem;
+        }
+
+        form {
             flex: 1;
 
             input, select {
@@ -51,7 +61,6 @@ const ContactContainer = styled.div`
                 cursor: pointer;
                 outline: none;
                 border: none;
-                padding: 30px;
                 font-size: 1.5rem;
                 font-family: ${GlobalFonts.primary}; 
                 width: 100%;
@@ -106,9 +115,44 @@ const ContactContainer = styled.div`
 
 const Contact = () => {
     const [category, setCategory] = useState(false);
-
-    const onSubmitHandler = (e) => {
+    const [error, setError] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [success, setSuccess] = useState(null);
+    
+    const nama = useRef();
+    const email = useRef();
+    const pesan = useRef();
+    
+    const onSubmitHandler = async (e) => {
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyp5lM4a5oCT2ArLvYcjdhXSKrjbIIfBkyrG5RPG-puLzPgaxal-_bFwrZ3x2YbaOat/exec';
         e.preventDefault();
+
+        for (var value of new FormData(document.getElementById("my-form")).values()) {
+            console.log(value);
+         }
+
+        if(category === false) {
+            setError("Kolom Kategori harus diganti");
+        } else {
+            try {   
+                setIsLoading(true);
+                let res = await fetch(scriptURL, { 
+                    method: 'POST', 
+                    body: new FormData(document.getElementById("my-form")),
+                });
+                setSuccess('Pesan berhasil terkirim, kami akan mengubungi anda kembali secepat mungkin!');
+                setIsLoading(false);
+
+                nama.current.value = "";
+                email.current.value = "";
+                pesan.current.value = "";
+                
+                setCategory(false);
+            } catch (err) {
+                setError("Ada Kendala, mohon maaf atas gangguan teknis")
+                setIsLoading(false);
+            }
+        }
     }   
 
     return (
@@ -118,18 +162,29 @@ const Contact = () => {
                 <p>Jika ada yang ingin disampaikan janganlah ragu, kami akan menghubungi Anda kembali <span style={{ color: GlobalColors.blue, fontWeight: 500 }}>secepat</span> mungkin!</p>
                 
                 <div className="ContactContainer__wrap">
-                    <form onSubmit={e => onSubmitHandler(e)}>
-                        <input type="text" placeholder='Nama Lengkap'/>
-                        <input type="text" placeholder='Email' />
-                        <select id="standard-select" value={category} onChange={e => setCategory(e.target.value)}>
+                    <form onSubmit={e => onSubmitHandler(e)} id="my-form">
+                        <input type="text" placeholder='Nama Lengkap' ref={nama} name="nama" required />
+                        <input type="email" placeholder='Email' ref={email} name="email" />
+                        <select id="standard-select" value={category} onChange={e => setCategory(e.target.value)} name="kategori" required>
                             {!category && <option value={false}>Kategori</option>}
-                            <option value="orangtuaMurid">Orangtua Murid</option>
-                            <option value="murid">Siswa-siswi</option>
-                            <option value="perusahaan">Perusahaan</option>
-                            <option value="other">Lain-lain</option>
+                            <option value="Orangtua murid">Orangtua Murid</option>
+                            <option value="Murid">Siswa-siswi</option>
+                            <option value="Perusahaan">Perusahaan</option>
+                            <option value="Lain-lain">Lain-lain</option>
                         </select>
-                        <input type="text" placeholder='Pesan' />
-                        <button type='submit'>Kirim</button>
+                        <input type="text" placeholder='Pesan' ref={pesan}  name="pesan" required/>
+                        <p className='error' >{error && error}</p>
+                        <p className='success' >{success && success}</p>
+                        <button type='submit' style={{ padding: isLoading ? '0px' : '30px', opacity: isLoading ? 0.5 : 1 }} disabled={isLoading ? true : false}>
+                            {isLoading ?
+                                <svg xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" viewBox="0 0 100 100">
+                                    <path d="M 50,50 L 33,60.5 a 20 20 -210 1 1 34,0 z" fill="#fff">
+                                        <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="1.2s" repeatCount="indefinite"/>
+                                    </path>
+                                    <circle cx="50" cy="50" r="17" fill={GlobalColors.blue}></circle>
+                                </svg> :
+                                "Kirim"}
+                            </button>
                     </form>
                     <div className="ContactMediaContainer">
                         <div className="ContactMedia">  
