@@ -123,6 +123,7 @@ const JobCardsContainer = styled.div`
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    justify-content: center;
     min-height: 500px;
 
     .JobCardsContainer__NotFound {
