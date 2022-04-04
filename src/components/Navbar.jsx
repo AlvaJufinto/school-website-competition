@@ -15,11 +15,11 @@ export const NavWrapper = styled.div`
 `
 
 export const Nav = styled.div`
-    padding: 20px 0px;
+    padding: 5px 0px;
     margin: auto;
     width: 90%;
     max-width: ${GlobalMeasurements.containerWidth}px;
-    height: 80px;
+    height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,7 +35,8 @@ export const Nav = styled.div`
         font-family: ${GlobalFonts.secondary};
         
         img {
-           height: 60px;
+            margin: 0 10px 0 0;
+            height: 30px;
         }
     }
 

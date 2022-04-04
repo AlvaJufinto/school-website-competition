@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import AOS from "aos";  
 import styled from "styled-components";
 import { StyledLink } from "./styledComponents";
 import { GlobalColors, GlobalFonts, GlobalMeasurements } from "./../globals";
@@ -118,11 +119,15 @@ const Contact = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [success, setSuccess] = useState(null);
-    
+        
     const nama = useRef();
     const email = useRef();
     const pesan = useRef();
     
+    useEffect(() => {
+        AOS.init({ once: true });
+    }, []);
+
     const onSubmitHandler = async (e) => {
         const scriptURL = 'https://script.google.com/macros/s/AKfycbyp5lM4a5oCT2ArLvYcjdhXSKrjbIIfBkyrG5RPG-puLzPgaxal-_bFwrZ3x2YbaOat/exec';
         e.preventDefault();
@@ -158,11 +163,13 @@ const Contact = () => {
     return (
         <>
             <ContactContainer categoryValue={category} >
-                <h1>Hubungi kami</h1>
-                <p>Jika ada yang ingin disampaikan janganlah ragu, kami akan menghubungi Anda kembali <span style={{ color: GlobalColors.blue, fontWeight: 500 }}>secepat</span> mungkin!</p>
+                <div data-aos="fade-up" data-aos-duration="1000">
+                    <h1>Hubungi kami</h1>
+                    <p>Jika ada yang ingin disampaikan janganlah ragu, kami akan menghubungi Anda kembali <span style={{ color: GlobalColors.blue, fontWeight: 500 }}>secepat</span> mungkin!</p>
+                </div>
                 
-                <div className="ContactContainer__wrap">
-                    <form onSubmit={e => onSubmitHandler(e)} id="my-form">
+                <div className="ContactContainer__wrap" >
+                    <form onSubmit={e => onSubmitHandler(e)} id="my-form" data-aos="fade-right" data-aos-duration="1000">
                         <input type="text" placeholder='Nama Lengkap' ref={nama} name="nama" required />
                         <input type="email" placeholder='Email' ref={email} name="email" />
                         <select id="standard-select" value={category} onChange={e => setCategory(e.target.value)} name="kategori" required>
@@ -186,7 +193,7 @@ const Contact = () => {
                                 "Kirim"}
                             </button>
                     </form>
-                    <div className="ContactMediaContainer">
+                    <div className="ContactMediaContainer" data-aos="fade-left" data-aos-duration="1000">
                         <div className="ContactMedia">  
                             <h2>Kunjungi kami</h2>
                             <p>
