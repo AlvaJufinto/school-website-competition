@@ -15,7 +15,7 @@ export const NavWrapper = styled.div`
 `
 
 export const Nav = styled.div`
-    padding: 5px 0px;
+    /* padding: 10px 0 5px 0; */
     margin: auto;
     width: 90%;
     max-width: ${GlobalMeasurements.containerWidth}px;
@@ -41,12 +41,12 @@ export const Nav = styled.div`
     }
 
     .Nav__Burger {
-        height:  50%;
+        height: 40%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-end;
-        width: 50px;
+        width: 40px;
         
         .BurgerTop, .BurgerMid, .BurgerBottom {
             transition: 0.75s;
@@ -93,16 +93,44 @@ export const NavContainer = styled.div`
     z-index: -1;
     background: ${GlobalColors.black};
     /* background-color: black; */
-    
-    section {
+
+    section, .BottomContainer {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 100%;
-        margin: auto;
-        width: 90%;
         max-width: ${GlobalMeasurements.containerWidth}px;
+        width: 90%;
+        margin: auto;
+    }
+
+    section {
+        /* background-color: red; */
+        height: 85%;
         font-family: ${GlobalFonts.primary};
+    }
+
+    .BottomContainer {
+        height: 15%;
+
+        .SocialMedia {
+            display: flex;
+            gap: 50px;
+
+            i {
+                color: white;
+                font-size: 1.5rem;
+            }
+        }
+
+        p {
+            color: white;
+            font-size: 1rem;
+        }
+
+        span {
+            color: ${GlobalColors.blue};
+            font-weight: 400;
+        }
     }
 
     .NavContainer__Left {
@@ -113,7 +141,7 @@ export const NavContainer = styled.div`
         height: 100%;
         font-weight: bold;
         line-height: 1.2;
-        font-size: 7rem;
+        font-size: 5rem;
         color: transparent;
         -webkit-text-stroke: 2px white;
         letter-spacing: 25px;
@@ -125,7 +153,7 @@ export const NavContainer = styled.div`
         justify-content: center;
         align-items: flex-end;
         gap: 50px;
-        font-size: 5rem;
+        font-size: 3.25rem;
         letter-spacing: 10px;
         height: 100%;
         font-family: ${GlobalFonts.secondary};
@@ -225,6 +253,14 @@ const Navbar = () => {
                             <p onClick={() => navigatePage('jobs')}><span>03</span>Jobs</p>
                         </div>
                     </section>
+                    <div className="BottomContainer">
+                        <div className="SocialMedia">
+                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-youtube"></i>
+                            <i class="fa-brands fa-twitter"></i>
+                        </div>
+                        <p>SIJA <span> Terbaik</span> Se-Jakarta</p>
+                    </div>
                 </NavContainer>
             </NavWrapper> 
         </>
