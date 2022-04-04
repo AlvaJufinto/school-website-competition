@@ -127,7 +127,7 @@ const Contact = () => {
     const pesan = useRef();
     
     useEffect(() => {
-        AOS.init({ offset: -600 });
+        // AOS.init({ offset: -600 });
     }, []);
 
     const onSubmitHandler = async (e) => {
@@ -195,7 +195,7 @@ const Contact = () => {
                                 "Kirim"}
                             </button>
                     </form>
-                    <div className="ContactMediaContainer" data-aos="fade-left" data-aos-duration="1000">
+                    <div className="ContactMediaContainer" data-aos="fade-left" data-aos-duration="1000" data-aos-offset="-600" >
                         <div className="ContactMedia">  
                             <h2>Kunjungi kami</h2>
                             <p>
