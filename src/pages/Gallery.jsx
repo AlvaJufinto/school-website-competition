@@ -227,7 +227,9 @@ const Gallery = () => {
             
             <VirtualTourContainer>
                 <h2 data-aos="fade-up" data-aos-duration="1000" >Virtual Tour <span className="underline">SIJA'26</span></h2>
-                <p>Galeri Selengkapnya ada di virtual tour <span>SMKN 26 Jakarta</span></p>
+                <Parallax translateX={width > 1024 ? [10, 0] : [0,0]}>
+                    <p>Galeri Selengkapnya ada di virtual tour <span>SMKN 26 Jakarta</span></p>
+                </Parallax>
                 <iframe src="https://app.lapentor.com/sphere/smkn-26-1602643278?scene=5f87dffda66d425c4c007d27" height={600} width={"100%"} frameborder="0"></iframe>
             </VirtualTourContainer>
 
