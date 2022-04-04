@@ -149,6 +149,7 @@ const Contact = () => {
                 });
                 setSuccess('Pesan berhasil terkirim, kami akan mengubungi anda kembali secepat mungkin!');
                 setIsLoading(false);
+                setError(null);
 
                 nama.current.value = "";
                 email.current.value = "";
