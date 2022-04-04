@@ -136,6 +136,28 @@ export const GallerySection = styled.div`
     }
 `
 
+const VirtualTourContainer = styled.div`
+    margin: 0 0 200px 0;
+
+    h2 {
+        text-align: center;
+        font-size: 3rem;
+        font-family: ${GlobalFonts.primary};
+    }
+    
+    p {
+        text-align: center;
+        font-size: 2rem;
+        margin: 20px 0 50px 0;
+        font-family: ${GlobalFonts.secondary};
+        font-weight: 500;
+        
+        span {
+            color: ${GlobalColors.blue};
+        }
+    }
+`
+
 const Gallery = () => {
     const { width, height } = useWindowDimensions();
     
@@ -201,6 +223,13 @@ const Gallery = () => {
                 data: buildingImages,
                 text: 'Gallery Gedung'
              }} />
+
+            
+            <VirtualTourContainer>
+                <h2 data-aos="fade-up" data-aos-duration="1000" >Virtual Tour <span className="underline">SIJA'26</span></h2>
+                <p>Galeri Selengkapnya ada di virtual tour <span>SMKN 26 Jakarta</span></p>
+                <iframe src="https://app.lapentor.com/sphere/smkn-26-1602643278?scene=5f87dffda66d425c4c007d27" height={600} width={"100%"} frameborder="0"></iframe>
+            </VirtualTourContainer>
 
             <StyledSection>
                 <Contact />
