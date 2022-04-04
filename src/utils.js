@@ -29,39 +29,39 @@ export const champsHome = [
 export const subjects = [
     {
         name: 'Dasar Desain Grafis',
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
+        description: "Mempelajari dasar-dasar desain dengan bentuk komunikasi visual yang menggunakan teks dan gambar untuk menyampaikan informasi atau pesan seefektif mungkin"
     },
     {
         name: 'Komputer dan Jaringan Dasar',
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
+        description: "Mempelajari tentang proses mengidentifikasi dan mencegah pengguna yang tidak sah dari suatu jaringan komputer "
     },
     {
         name: 'Pemrograman Dasar',
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
+        description: "Mempelajari tentang proses menulis, menguji dan memperbaiki (debug), dan memelihara kode yang membangun suatu program komputer. Kode ini ditulis dalam berbagai bahasa pemrograman."
     },
     {
         name: 'Sistem Komputer',
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
+        description: "Mempelajari tentang kumpulan dari elemen-elemen computer (hardware, software, brainware) yang saling berhubungan (terintegrasi) dan saling berinteraksi untuk melakukan pengolahan data dengan tujuan menghasilkan informasi sesuai dengan yang diharapkan."
     },
     {
         name: 'Software as a Service (SaaS)',
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
+        description: "Mempelajari tentang model distribusi perangkat lunak dimana penyedia layanan menyediakan aplikasi untuk pelanggan dan membuatnya tersedia bagi pelanggan di internet."
     },
     {
         name: 'Platform as a Service (PaaS)',
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
+        description: "Mempelajari tentang layanan Cloud yang disediakan dalam bentuk platform dan dapat dimanfaatkan pengguna untuk membuat aplikasi di atasnya."
     },
     {
         name: 'Infrastructure as a Service (IaaS)',
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
+        description: "Mempelajari tentang layanan yang memungkinkan untuk menggunakan server tanpa perlu membeli komputer dan peralatannya secara fisik, melakukan pemeliharaan rutin, dan melakukan konfigurasi perangkat."
     },
     {
         name: 'Sistem Keamanan Jaringan (SKJ)',
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
+        description: "Mempelajari tentang proses mengidentifikasi dan mencegah pengguna yang tidak sah dari suatu jaringan komputer."
     },
     {
         name: 'Internet of Things (IoT)',
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At repudiandae ea veritatis voluptas? Minima doloremque natus dolores iste maiores veritatis! Optio molestiae voluptas accusantium laborum blanditiis repudiandae sit ratione facilis."
+        description: "Mempelajari tentang konsep di mana suatu benda atau objek ditanamkan teknologi-teknologi seperti sensor dan software dengan tujuan untuk berkomunikasi, mengendalikan, menghubungkan, dan bertukar data melalui perangkat lain selama masih terhubung ke internet."
     },
 ];
 
