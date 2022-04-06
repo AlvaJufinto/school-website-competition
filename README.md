@@ -10,6 +10,7 @@ SIJA'26  merupakan sebuah website penyedia informasi mengenai jurusan SIJA SMKN 
 
 ## Penjelasan Fitur Hubungi Kami
 * Ke bagian paling bawah dari setiap page
+* Isi form dengan lengkap dan benar
 * Respons yang masuk akan disimpan di Google Spreadsheet (Realtime)
 * Link untuk ke Google SpreadSheet ada di sini [https://docs.google.com/spreadsheets/d/17BZj1HS5zWsfMHtEbxkjkhTlQwDFdHVioGV-3Ux8A7c/edit?usp=sharing](https://docs.google.com/spreadsheets/d/17BZj1HS5zWsfMHtEbxkjkhTlQwDFdHVioGV-3Ux8A7c/edit?usp=sharing "https://docs.google.com/spreadsheets/d/17BZj1HS5zWsfMHtEbxkjkhTlQwDFdHVioGV-3Ux8A7c/edit?usp=sharing")
 
